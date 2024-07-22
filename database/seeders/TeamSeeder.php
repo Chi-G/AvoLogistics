@@ -1,0 +1,163 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
+class TeamSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        DB::table('teams')->insert([
+            [
+                'name' => 'John Doe',
+                'position' => 'CEO',
+                'short_desc' => 'John is the CEO of the company with over 20 years of experience.',
+                'image' => 'path/to/john_image.jpg',
+                'fb' => 'https://facebook.com/johndoe',
+                'linkedIn' => 'https://linkedin.com/in/johndoe',
+                'twitter' => 'https://twitter.com/johndoe',
+                'IG' => 'https://instagram.com/johndoe',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Jane Smith',
+                'position' => 'CTO',
+                'short_desc' => 'Jane is the CTO with a passion for technology and innovation.',
+                'image' => 'path/to/jane_image.jpg',
+                'fb' => 'https://facebook.com/janesmith',
+                'linkedIn' => 'https://linkedin.com/in/janesmith',
+                'twitter' => 'https://twitter.com/janesmith',
+                'IG' => 'https://instagram.com/janesmith',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Jane Smith',
+                'position' => 'CTO',
+                'short_desc' => 'Jane is the CTO with a passion for technology and innovation.',
+                'image' => 'path/to/jane_image.jpg',
+                'fb' => 'https://facebook.com/janesmith',
+                'linkedIn' => 'https://linkedin.com/in/janesmith',
+                'twitter' => 'https://twitter.com/janesmith',
+                'IG' => 'https://instagram.com/janesmith',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Jane Smith',
+                'position' => 'CTO',
+                'short_desc' => 'Jane is the CTO with a passion for technology and innovation.',
+                'image' => 'path/to/jane_image.jpg',
+                'fb' => 'https://facebook.com/janesmith',
+                'linkedIn' => 'https://linkedin.com/in/janesmith',
+                'twitter' => 'https://twitter.com/janesmith',
+                'IG' => 'https://instagram.com/janesmith',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Jane Smith',
+                'position' => 'CTO',
+                'short_desc' => 'Jane is the CTO with a passion for technology and innovation.',
+                'image' => 'path/to/jane_image.jpg',
+                'fb' => 'https://facebook.com/janesmith',
+                'linkedIn' => 'https://linkedin.com/in/janesmith',
+                'twitter' => 'https://twitter.com/janesmith',
+                'IG' => 'https://instagram.com/janesmith',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Jane Smith',
+                'position' => 'CTO',
+                'short_desc' => 'Jane is the CTO with a passion for technology and innovation.',
+                'image' => 'path/to/jane_image.jpg',
+                'fb' => 'https://facebook.com/janesmith',
+                'linkedIn' => 'https://linkedin.com/in/janesmith',
+                'twitter' => 'https://twitter.com/janesmith',
+                'IG' => 'https://instagram.com/janesmith',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Jane Smith',
+                'position' => 'CTO',
+                'short_desc' => 'Jane is the CTO with a passion for technology and innovation.',
+                'image' => 'path/to/jane_image.jpg',
+                'fb' => 'https://facebook.com/janesmith',
+                'linkedIn' => 'https://linkedin.com/in/janesmith',
+                'twitter' => 'https://twitter.com/janesmith',
+                'IG' => 'https://instagram.com/janesmith',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Jane Smith',
+                'position' => 'CTO',
+                'short_desc' => 'Jane is the CTO with a passion for technology and innovation.',
+                'image' => 'path/to/jane_image.jpg',
+                'fb' => 'https://facebook.com/janesmith',
+                'linkedIn' => 'https://linkedin.com/in/janesmith',
+                'twitter' => 'https://twitter.com/janesmith',
+                'IG' => 'https://instagram.com/janesmith',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Jane Smith',
+                'position' => 'CTO',
+                'short_desc' => 'Jane is the CTO with a passion for technology and innovation.',
+                'image' => 'path/to/jane_image.jpg',
+                'fb' => 'https://facebook.com/janesmith',
+                'linkedIn' => 'https://linkedin.com/in/janesmith',
+                'twitter' => 'https://twitter.com/janesmith',
+                'IG' => 'https://instagram.com/janesmith',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Jane Smith',
+                'position' => 'CTO',
+                'short_desc' => 'Jane is the CTO with a passion for technology and innovation.',
+                'image' => 'path/to/jane_image.jpg',
+                'fb' => 'https://facebook.com/janesmith',
+                'linkedIn' => 'https://linkedin.com/in/janesmith',
+                'twitter' => 'https://twitter.com/janesmith',
+                'IG' => 'https://instagram.com/janesmith',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Jane Smith',
+                'position' => 'CTO',
+                'short_desc' => 'Jane is the CTO with a passion for technology and innovation.',
+                'image' => 'path/to/jane_image.jpg',
+                'fb' => 'https://facebook.com/janesmith',
+                'linkedIn' => 'https://linkedin.com/in/janesmith',
+                'twitter' => 'https://twitter.com/janesmith',
+                'IG' => 'https://instagram.com/janesmith',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Jane Smith',
+                'position' => 'CTO',
+                'short_desc' => 'Jane is the CTO with a passion for technology and innovation.',
+                'image' => 'path/to/jane_image.jpg',
+                'fb' => 'https://facebook.com/janesmith',
+                'linkedIn' => 'https://linkedin.com/in/janesmith',
+                'twitter' => 'https://twitter.com/janesmith',
+                'IG' => 'https://instagram.com/janesmith',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+        ]);
+    }
+}
