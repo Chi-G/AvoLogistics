@@ -11,7 +11,7 @@ class Sliders extends Model
 
     // Fillable attributes for mass assignment
     protected $fillable = [
-        'image', 
+        'image',  
         'title', 
         'description',
     ];

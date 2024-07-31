@@ -8,8 +8,11 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\TeamsController;
 use App\Http\Controllers\ContactsController;
 
+use App\Http\Controllers\RequestAQuoteController;
+use App\Http\Controllers\TrackAndTraceController;
+
 use App\Http\Controllers\Admin\ServiceController;
-use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\AdminController;
 use App\Models\AboutUs;
 use App\Models\Contacts;
 use App\Models\News;
@@ -53,11 +56,13 @@ Route::get('/teams', [TeamsController::class, 'index'])->name('teams');
 Route::get('/contacts', [ContactsController::class, 'index'])->name('contacts');
 Route::post('/contacts', [ContactsController::class, 'send'])->name('contacts.send');
 
+// Tracking Routes
+Route::post('/quote', [RequestAQuoteController::class, 'store'])->name('quote.store');
+Route::post('/track', [TrackAndTraceController::class, 'store'])->name('tracking.store');
+
 Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
-
-Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 
 Route::get('/dashboard', function () {

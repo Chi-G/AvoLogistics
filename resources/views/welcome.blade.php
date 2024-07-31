@@ -13,9 +13,9 @@
 		<meta name="developer" content="Chijindu Nwokeohuru">
 		<meta name="developer-email" content="chijindu.nwokeohuru@gmail.com">
 
-        <!-- Bootstrap Min CSS --> 
+        <!-- Bootstrap Min CSS -->
         @include('includes.css')
-		
+
         <!-- Title -->
         <title>AVO Logistics - Easing the burden</title>
     </head>
@@ -60,14 +60,14 @@
 						<div class="d-table-cell">
 							<div class="container">
 								<div class="prevoz-slider-text overflow-hidden">
-									<span>Avo Logistic Services</span>
+									{{-- <span>Avo Logistic Services</span> --}}
 									<h1>{{ $slider->title }}</h1>
 									<p>{{ $slider->description }}</p>
 									<div class="slider-btn">
 										<a class="default-btn active" href="{{ route('services') }}">
 											Our Services
 										</a>
-										<a class="default-btn white" href="#">
+										<a class="default-btn white" href="#tabs_item">
 											Request A Quote
 										</a>
 									</div>
@@ -91,213 +91,183 @@
 								<li>
 									<a href="javascript:;">
 										<i class="flaticon-truck"></i>
-										Track & Trace
+										Request A Quote
 									</a>
 								</li>
 								<li>
 									<a href="javascript:;">
-										Request A Quote
+										Track & Trace
 										<i class="flaticon-quote"></i>
 									</a>
 								</li>
 							</ul>
 							<div class="tab_content">
 								<div class="tabs_item">
-									<form>
-										<div class="row">
-											<div class="col-lg-8">
-												<div class="row">
-													<div class="col-12">
-														<h3>Personal Data</h3>
-													</div>
-													<div class="col-lg-4 col-sm-6">
-														<div class="form-group">
-															<input type="text" class="form-control" placeholder="Your Name*">
-														</div>
-													</div>
-													<div class="col-lg-4 col-sm-6">
-														<div class="form-group">
-															<input type="email" class="form-control" placeholder="Your Email*">
-														</div>
-													</div>
-													<div class="col-lg-4">
-														<div class="form-group">
-															<input type="text" class="form-control" placeholder="Your Phone*">
-														</div>
-													</div>
-												</div>
-												<div class="row">
-													<div class="col-12">
-														<h3>Shipment Data</h3>
-													</div>
-													<div class="col-lg-4 col-sm-6">
-														<div class="form-group">
-															<select>
-																<option value="1">Type of flight One</option>
-																<option value="2">Type of flight Two</option>
-																<option value="0">Type of flight Three</option>
-																<option value="3">Type of flight Four</option>
-																<option value="4">Type of flight Five</option>
-																<option value="5">Type of flight Six</option>
-																<option value="6">Type of flight Seven</option>
-															</select>
-														</div>
-													</div>
-													<div class="col-lg-4 col-sm-6">
-														<div class="form-group">
-															<input type="text" class="form-control" placeholder="City of Departure">
-														</div>
-													</div>
-													<div class="col-lg-4">
-														<div class="form-group">
-															<input type="text" class="form-control" placeholder="Which City">
-														</div>
-													</div>
-												</div>
-												<div class="row">
-													<div class="col-lg-4 col-sm-6">
-														<div class="form-group">
-															<select>
-																<option value="1">Incomers One</option>
-																<option value="2">Incomers Two</option>
-																<option value="0">Incomers Three</option>
-																<option value="3">Incomers Four</option>
-																<option value="4">Travel Insurance Five</option>
-																<option value="5">Incomers Six</option>
-																<option value="6">Incomers Seven</option>
-															</select>
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6">
-														<div class="form-group">
-															<input type="text" class="form-control" placeholder="Width">
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6">
-														<div class="form-group">
-															<input type="text" class="form-control" placeholder="Height">
-														</div>
-													</div>
-													<div class="col-lg-2 col-sm-6">
-														<div class="form-group">
-															<input type="text" class="form-control" placeholder="Width">
-														</div>
-													</div>
-													<div class="col-lg-2">
-														<div class="form-group">
-															<input type="text" class="form-control" placeholder="Length">
-														</div>
-													</div>
-												</div>
-												<div class="row mb-30">
-													<div class="col-lg-3 col-sm-6 col-md-3">
-														<label class="single-check">
-															Express Delivery
-															<input type="radio" checked="checked" name="radio">
-															<span class="checkmark"></span>
-														</label>
-													</div>
-													<div class="col-lg-3 col-sm-6 col-md-3">
-														<label class="single-check">
-															Ocean Freight
-															<input type="radio" name="radio">
-															<span class="checkmark"></span>
-														</label>
-													</div>
-													<div class="col-lg-3 col-sm-6 col-md-3">
-														<label class="single-check">
-															Road Freight
-															<input type="radio" name="radio">
-															<span class="checkmark"></span>
-														</label>
-													</div>
-													<div class="col-lg-3 col-sm-6 col-md-3">
-														<label class="single-check">
-															Air Freight
-															<input type="radio" name="radio">
-															<span class="checkmark"></span>
-														</label>
-													</div>
-												</div>
-												<div class="row">
-													<div class="col-12">
-														<button type="submit" class="default-btn">
-															Request A Quote
-														</button>
-													</div>
-												</div>
-											</div>
-											<div class="col-lg-4">
-												<div class="track-img"></div>
-											</div>
-										</div>
-									</form>
+									<form action="{{ route('quote.store') }}" method="POST">
+                                        @csrf
+
+                                        <div class="row">
+                                            <div class="col-lg-8">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <h3>Personal Data</h3>
+                                                    </div>
+                                                    <div class="col-lg-4 col-sm-6">
+                                                        <div class="form-group">
+                                                            <input type="text" name="name" class="form-control" placeholder="Your Name*" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-sm-6">
+                                                        <div class="form-group">
+                                                            <input type="email" name="email" class="form-control" placeholder="Your Email*" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <input type="text" name="phone" class="form-control" placeholder="Your Phone*" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <h3>Shipment Data</h3>
+                                                    </div>
+                                                    <div class="col-lg-4 col-sm-6">
+                                                        <div class="form-group">
+                                                            <select name="vehicle_type" class="form-control" required>
+                                                                <option value="">Type of Vehicle</option>
+                                                                <option value="1">Type of flight One</option>
+                                                                <option value="2">Type of flight Two</option>
+                                                                <option value="0">Type of flight Three</option>
+                                                                <option value="3">Type of flight Four</option>
+                                                                <option value="4">Type of flight Five</option>
+                                                                <option value="5">Type of flight Six</option>
+                                                                <option value="6">Type of flight Seven</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-sm-6">
+                                                        <div class="form-group">
+                                                            <input type="text" name="city_of_departure" class="form-control" placeholder="City of Departure" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <input type="time" name="departure_time" class="form-control" placeholder="Departure Time" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-sm-6">
+                                                        <div class="form-group">
+                                                            <select name="type_of_goods" class="form-control" required>
+                                                                <option value="">Type of Goods</option>
+                                                                <option value="1">Incomers One</option>
+                                                                <option value="2">Incomers Two</option>
+                                                                <option value="0">Incomers Three</option>
+                                                                <option value="3">Incomers Four</option>
+                                                                <option value="4">Travel Insurance Five</option>
+                                                                <option value="5">Incomers Six</option>
+                                                                <option value="6">Incomers Seven</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-sm-6">
+                                                        <div class="form-group">
+                                                            <input type="text" name="weight_of_shipment" class="form-control" placeholder="Weight of Shipment (KG)" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-30">
+                                                    <div class="col-lg-3 col-sm-6 col-md-3">
+                                                        <label class="single-check">
+                                                            Express Delivery
+                                                            <input type="radio" value="Express Delivery" checked="checked" name="delivery_type" required>
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-lg-3 col-sm-6 col-md-3">
+                                                        <label class="single-check">
+                                                            Road Freight
+                                                            <input type="radio" value="Road Freight" name="delivery_type">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <button type="submit" class="default-btn">Request A Quote</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="track-img"></div>
+                                            </div>
+                                        </div>
+                                    </form>
+
 								</div>
-		
+
 								<div class="tabs_item">
-									<form>
-										<div class="row">
-											<div class="col-lg-8">
-												<div class="row">
-													<div class="col-12">
-														<h3>Shipment Type</h3>
-														<div class="form-group">
-															<select>
-																<option value="1">Property Used For</option>
-																<option value="2">Home Insurance</option>
-																<option value="0">Business Insurance</option>
-																<option value="3">Health Insurance</option>
-																<option value="4">Travel Insurance</option>
-																<option value="5">Car Insurance</option>
-																<option value="6">Life Insurance</option>
-															</select>
-														</div>
-													</div>
-													<div class="col-12 mt-30">
-														<h3>Tracking Number</h3>
-													</div>
-													<div class="col-12">
-														<div class="form-group">
-															<textarea class="form-control" placeholder="You can enter up to a maximum of 10 airway bill numbers for tracking."></textarea>
-														</div>
-													</div>
-												</div>
-												<div class="row">
-													<div class="col-lg-3 col-sm-6 col-md-3">
-														<label class="single-check">
-															Express Delivery
-															<input type="radio" checked="checked" name="radio">
-															<span class="checkmark"></span>
-														</label>
-													</div>
-													<div class="col-lg-3 col-sm-6 col-md-3">
-														<label class="single-check">
-															Ocean Freight
-															<input type="radio" name="radio">
-															<span class="checkmark"></span>
-														</label>
-													</div>
-													<div class="col-lg-3 col-sm-6 col-md-3">
-														<label class="single-check">
-															Road Freight
-															<input type="radio" name="radio">
-															<span class="checkmark"></span>
-														</label>
-													</div>
-													<div class="col-lg-3 col-sm-6 col-md-3">
-														<label class="single-check">
-															Air Freight
-															<input type="radio" name="radio">
-															<span class="checkmark"></span>
-														</label>
-													</div>
-												</div>
-											</div>
-											<div class="col-lg-4">
-												<div class="track-img"></div>
-											</div>
-										</div>
-									</form>
+									<form action="{{ route('tracking.store') }}" method="POST">
+                                        @csrf
+
+                                        <div class="row">
+                                            <div class="col-lg-8">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <h3>Shipment Type</h3>
+                                                        <div class="form-group">
+                                                            <select name="shipment_type" class="form-control" required>
+                                                                <option value="">Select Shipment/Property type</option>
+                                                                <option value="1">Property Used For</option>
+                                                                <option value="2">Home Insurance</option>
+                                                                <option value="0">Business Insurance</option>
+                                                                <option value="3">Health Insurance</option>
+                                                                <option value="4">Travel Insurance</option>
+                                                                <option value="5">Car Insurance</option>
+                                                                <option value="6">Life Insurance</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 mt-30">
+                                                        <h3>Tracking Number</h3>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="form-group">
+                                                            <textarea name="tracking_numbers" class="form-control" placeholder="Kindly input your tracking numbers." required></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-3 col-sm-6 col-md-3">
+                                                        <label class="single-check">
+                                                            Express Delivery
+                                                            <input type="radio" value="Express Delivery" checked="checked" name="delivery_type" required>
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-lg-3 col-sm-6 col-md-3">
+                                                        <label class="single-check">
+                                                            Road Freight
+                                                            <input type="radio" value="Road Freight" name="delivery_type">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                &nbsp;
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <button type="submit" class="default-btn">Track & Trace</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="track-img"></div>
+                                            </div>
+                                        </div>
+                                    </form>
+
 								</div>
 							</div>
 						</div>
@@ -306,7 +276,7 @@
 			</div>
 		</section>
 		<!-- End Track Area -->
-		
+
 		<!-- Start About Area -->
 		<section class="about-area pb-100">
 			<div class="container">
@@ -333,7 +303,7 @@
 				</div>
 			</div>
 		</section>
-		
+
 		<!-- End About Area -->
 
 		<!-- Start What We Offer Area -->
@@ -386,7 +356,7 @@
 					</div>
 				</div>
 			</div>
-		</section>		
+		</section>
 		<!-- End What We Offer Area -->
 
 		<!-- Start Why Choose Us Area -->
@@ -425,25 +395,25 @@
 								<div class="tab_content">
 									<div class="tabs_item">
 										<p>Our mission is to provide reliable and efficient logistics solutions that exceed customer expectations. We strive to innovate and improve our services to ensure the highest level of satisfaction.</p>
-		
+
 										<p>We are committed to delivering value through our comprehensive range of services, including warehousing, air freight, ocean freight, and road freight, tailored to meet the unique needs of each client.</p>
 										<a class="default-btn" href="#">
 											Learn About
 										</a>
 									</div>
-			
+
 									<div class="tabs_item">
 										<p>Our vision is to be the leading logistics company, known for our excellence in service, operational efficiency, and innovative solutions. We aim to create a seamless and integrated logistics experience for our customers worldwide.</p>
-		
+
 										<p>We envision a future where logistics is simplified, and businesses can rely on us for all their transportation needs, allowing them to focus on their core activities and growth.</p>
 										<a class="default-btn" href="#">
 											Learn About
 										</a>
 									</div>
-		
+
 									<div class="tabs_item">
 										<p>Our core values guide us in every aspect of our business. We prioritize customer satisfaction, operational integrity, and continuous improvement. Our team is dedicated to providing exceptional service and building long-lasting relationships with our clients.</p>
-		
+
 										<p>We value transparency, accountability, and teamwork. These principles ensure that we deliver on our promises and maintain the trust and loyalty of our customers.</p>
 										<a class="default-btn" href="#">
 											Learn About
@@ -455,7 +425,7 @@
 					</div>
 				</div>
 			</div>
-		</section>		
+		</section>
 		<!-- End Why Choose Us Area -->
 
 		<!-- Start Counter Area -->
@@ -500,7 +470,7 @@
 					</div>
 				</div>
 			</div>
-		</section>		
+		</section>
 		<!-- End Counter Area -->
 
 		<!-- start Service Area -->
@@ -558,7 +528,7 @@
 					</div>
 				</div>
 			</div>
-		</section>		
+		</section>
 		<!-- End Service Area -->
 
 		<!-- Start Testimonials Area -->
@@ -645,7 +615,7 @@
 					</div>
 				</div>
 			</div>
-		</section>		
+		</section>
 		<!-- End Testimonials Area -->
 
 		<!-- Start Brand Area -->
@@ -691,7 +661,7 @@
 					<span>News & Blog</span>
 					<h2>Get every single update here.</h2>
 					<p>Stay informed with the latest insights and updates from Avo Logistics. Explore our expert opinions, industry trends, and company news to stay ahead in the logistics and supply chain sector.</p>
-				</div>				
+				</div>
 				<div class="row">
 					<div class="col-lg-4 col-md-6">
 						<div class="single-blog">
@@ -733,7 +703,7 @@
 								</ul>
 								<h3>
 									<a href="news-details.html">
-										Deliveright Logistics Expands Service to West 
+										Deliveright Logistics Expands Service to West
 									</a>
 								</h3>
 								<a class="read-more" href="news-details.html">
@@ -782,12 +752,12 @@
 						<ul>
 							<li class="color">Nigeria</li>
 							<li>Plot 3, 9 Ishaya Shekari Crescent, Gwarinpa, 900108, Federal Capital Territory</li>
-							<li>+ (234) 1234-567-890</li>
+							<li>+ (234)  818-876-5625</li>
 						</ul>
 					</div>
 				</div>
 			</div>
-		</section>		
+		</section>
 		<!-- End Regional offices Area -->
 
 		<!-- Start Footer Top Area -->
@@ -799,9 +769,9 @@
 			<i class='bx bx-chevrons-up bx-fade-up'></i>
 			<i class='bx bx-chevrons-up bx-fade-up'></i>
 		</div>
-		<!-- End Go Top Area --> 
+		<!-- End Go Top Area -->
 
-        
+
         <!-- Jquery Min JS -->
         @include('includes.script')
     </body>

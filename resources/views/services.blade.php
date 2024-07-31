@@ -232,7 +232,7 @@
 		<!-- Start Subscribe Area -->
 		<div class="subscribe-area ptb-100">
 			<div class="container">
-			
+			 
 			</div>
 		</div>
 		<!-- End Subscribe Area -->

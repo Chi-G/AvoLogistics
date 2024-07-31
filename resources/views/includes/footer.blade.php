@@ -78,7 +78,7 @@
                     <p>All right reserved © <a href="#" target="_blank">Avo Logistics</a></p>
                 </div>
             </div>
-            <div class="col-lg-3">
+            {{-- <div class="col-lg-3">
                 <div class="single-widget-bottom">
                     <ul class="social-link">
                         <li>
@@ -108,7 +108,7 @@
                         </li>
                     </ul>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </footer>

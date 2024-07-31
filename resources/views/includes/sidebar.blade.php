@@ -24,13 +24,13 @@
                             continuously improving quality of life for the resident population of Nigeria.
                         </p>
                     </div>
-                    <div class="sidebar-modal-widget">
-                        <h3 class="title">Admin Links</h3>
+                    {{-- <div class="sidebar-modal-widget">
+                        <h3 class="title">Admin Links</h3> --}}
 
-                        @if (Route::has('login'))
-                            <ul>
+                        {{-- @if (Route::has('login'))
+                            <ul> --}}
                                 {{-- <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right"> --}}
-                                    @auth
+                                    {{-- @auth
                                         @if(auth()->user()->is_admin)
                                             <li>
                                                 <a href="{{ route('admin.dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
@@ -42,11 +42,11 @@
                                             <li>
                                                 <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
                                             </li>
-                                    @endauth
+                                    @endauth --}}
                                 {{-- </div> --}}
-                            </ul>
+                            {{-- </ul>
                         @endif								
-                    </div>
+                    </div> --}}
                     <div class="sidebar-modal-widget">
                         <h3 class="title">Contact Info</h3>
                         <ul class="contact-info">
