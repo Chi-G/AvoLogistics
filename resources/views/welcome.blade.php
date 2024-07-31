@@ -60,7 +60,6 @@
 						<div class="d-table-cell">
 							<div class="container">
 								<div class="prevoz-slider-text overflow-hidden">
-									{{-- <span>Avo Logistic Services</span> --}}
 									<h1>{{ $slider->title }}</h1>
 									<p>{{ $slider->description }}</p>
 									<div class="slider-btn">
