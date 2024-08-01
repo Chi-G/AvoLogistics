@@ -85,6 +85,7 @@ Route::middleware(['auth', 'role:admin,superadmin'])->prefix('admin')->name('adm
     Route::resource('sliders', App\Http\Controllers\Admin\SlidersController::class);
     Route::resource('contacts', App\Http\Controllers\Admin\ContactsController::class);
     Route::resource('aboutus', App\Http\Controllers\Admin\AboutUsController::class);
+    Route::resource('tracker', App\Http\Controllers\Admin\TrackRequestController::class);
 });
 
 require __DIR__.'/auth.php';

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\RequestAQuote;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\AdminQuoteRequest;
+use App\Mail\UserQuoteRequest;
 
 class RequestAQuoteController extends Controller
 {
@@ -30,10 +32,10 @@ class RequestAQuoteController extends Controller
         $quote->save();
 
         // Send email to admin
-        Mail::to('support@avologistics.com')->send(new \App\Mail\AdminQuoteRequestMail($quote));
+        Mail::to('support@avologistics.org')->send(new AdminQuoteRequest($quote));
 
         // Send email to user
-        Mail::to($quote->email)->send(new \App\Mail\UserQuoteRequestMail($quote));
+        Mail::to($quote->email)->send(new UserQuoteRequest($quote));
 
         return redirect()->back()->with('success', 'Quote request submitted successfully. Your tracking number is ' . $trackingNumber);
     }
