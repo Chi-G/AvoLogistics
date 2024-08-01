@@ -134,7 +134,7 @@
                                                     <div class="col-lg-4 col-sm-6">
                                                         <div class="form-group">
                                                             <select name="vehicle_type" class="form-control" required>
-                                                                <option value="">Type of Vehicle</option>
+                                                                <option value="Default">Type of Vehicle</option>
                                                                 <option value="1">Type of flight One</option>
                                                                 <option value="2">Type of flight Two</option>
                                                                 <option value="0">Type of flight Three</option>
@@ -160,7 +160,7 @@
                                                     <div class="col-lg-6 col-sm-6">
                                                         <div class="form-group">
                                                             <select name="type_of_goods" class="form-control" required>
-                                                                <option value="">Type of Goods</option>
+                                                                <option value="Default">Type of Goods</option>
                                                                 <option value="1">Incomers One</option>
                                                                 <option value="2">Incomers Two</option>
                                                                 <option value="0">Incomers Three</option>

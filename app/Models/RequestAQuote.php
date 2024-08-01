@@ -19,5 +19,6 @@ class RequestAQuote extends Model
         'type_of_goods',
         'weight_of_shipment',
         'delivery_type',
+        'tracking_number',
     ];
 }

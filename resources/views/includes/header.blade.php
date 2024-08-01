@@ -22,10 +22,10 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="mailto:support@avologistics.com">
+                                <a href="mailto:support@avologistics.org">
                                     <i class='bx bx-envelope'></i>
                                     <span>Contact support</span>
-                                    <span>support@avologistics</span>
+                                    <span>support@avologistics.org</span>
                                 </a>
                             </li>
                             <li class="pl-0">
