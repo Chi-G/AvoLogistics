@@ -12,6 +12,7 @@ class RequestAQuoteController extends Controller
 {
     public function store(Request $request)
     {
+        dd($request);
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
@@ -22,6 +23,7 @@ class RequestAQuoteController extends Controller
             'type_of_goods' => 'required|string|max:255',
             'weight_of_shipment' => 'required|numeric',
             'delivery_type' => 'required|string|max:255',
+            'date_of_shipment' => 'required|date',
         ]);
 
         $quote = RequestAQuote::create($validatedData);

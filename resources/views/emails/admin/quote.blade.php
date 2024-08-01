@@ -12,6 +12,9 @@ You have received a new quote request.
 **Type of Goods:** {{ $quote->type_of_goods }}
 **Weight of Shipment:** {{ $quote->weight_of_shipment }}
 **Delivery Type:** {{ $quote->delivery_type }}
+**Date of Shipment:** {{ $quote->date_of_shipment }}
 **Tracking Number:** {{ $quote->tracking_number }}
 
+Thanks,
+{{ config('app.name') }}
 @endcomponent

@@ -102,7 +102,42 @@
 							</ul>
 							<div class="tab_content">
 								<div class="tabs_item">
-									<form action="{{ route('quote.store') }}" method="POST">
+                                    <form action="{{ route('quote.store') }}" method="POST">
+                                        @csrf
+                                        <label for="name">Name:</label>
+                                        <input type="text" id="name" name="name" required>
+
+                                        <label for="email">Email:</label>
+                                        <input type="email" id="email" name="email" required>
+
+                                        <label for="phone">Phone:</label>
+                                        <input type="text" id="phone" name="phone" required>
+
+                                        <label for="vehicle_type">Vehicle Type:</label>
+                                        <input type="text" id="vehicle_type" name="vehicle_type" required>
+
+                                        <label for="city_of_departure">City of Departure:</label>
+                                        <input type="text" id="city_of_departure" name="city_of_departure" required>
+
+                                        <label for="departure_time">Departure Time:</label>
+                                        <input type="time" id="departure_time" name="departure_time" required>
+
+                                        <label for="type_of_goods">Type of Goods:</label>
+                                        <input type="text" id="type_of_goods" name="type_of_goods" required>
+
+                                        <label for="weight_of_shipment">Weight of Shipment:</label>
+                                        <input type="number" id="weight_of_shipment" name="weight_of_shipment" required>
+
+                                        <label for="delivery_type">Delivery Type:</label>
+                                        <input type="text" id="delivery_type" name="delivery_type" required>
+
+                                        <label for="date_of_shipment">Date of Shipment:</label>
+                                        <input type="date" id="date_of_shipment" name="date_of_shipment" required>
+
+                                        <button type="submit">Submit</button>
+                                    </form>
+
+									{{-- <form action="{{ route('quote.store') }}" method="POST">
                                         @csrf
 
                                         <div class="row">
@@ -157,7 +192,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-lg-6 col-sm-6">
+                                                    <div class="col-lg-4 col-sm-6">
                                                         <div class="form-group">
                                                             <select name="type_of_goods" class="form-control" required>
                                                                 <option value="Default">Type of Goods</option>
@@ -171,9 +206,14 @@
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-6 col-sm-6">
+                                                    <div class="col-lg-4 col-sm-6">
                                                         <div class="form-group">
                                                             <input type="text" name="weight_of_shipment" class="form-control" placeholder="Weight of Shipment (KG)" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-sm-6">
+                                                        <div class="form-group">
+                                                            <input type="date" name="date_of_shipment" class="form-control" placeholder="Date of Shipment" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -203,12 +243,12 @@
                                                 <div class="track-img"></div>
                                             </div>
                                         </div>
-                                    </form>
+                                    </form> --}}
 
 								</div>
 
 								<div class="tabs_item">
-									<form action="{{ route('tracking.store') }}" method="POST">
+									<form action="{{ route('track.store') }}" method="POST">
                                         @csrf
 
                                         <div class="row">

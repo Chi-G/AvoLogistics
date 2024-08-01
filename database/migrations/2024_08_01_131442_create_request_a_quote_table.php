@@ -23,6 +23,7 @@ return new class extends Migration
             $table->decimal('weight_of_shipment', 8, 2);
             $table->string('delivery_type');
             $table->string('tracking_number')->nullable();
+            $table->date('date_of_shipment')->nullable();
             $table->timestamps();
         });
     }

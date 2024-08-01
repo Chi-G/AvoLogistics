@@ -20,5 +20,6 @@ class RequestAQuote extends Model
         'weight_of_shipment',
         'delivery_type',
         'tracking_number',
+        'date_of_shipment',
     ];
 }

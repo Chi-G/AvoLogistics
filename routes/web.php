@@ -58,7 +58,7 @@ Route::post('/contacts', [ContactsController::class, 'send'])->name('contacts.se
 
 // Tracking Routes
 Route::post('/quote', [RequestAQuoteController::class, 'store'])->name('quote.store');
-Route::post('/track', [TrackAndTraceController::class, 'store'])->name('tracking.store');
+Route::post('/track', [TrackAndTraceController::class, 'store'])->name('track.store');
 
 Route::get('/login', function () {
     return view('auth.login');

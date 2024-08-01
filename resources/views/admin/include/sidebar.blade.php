@@ -12,7 +12,7 @@
         <li class="nav-item toggle-sidebar">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left sidebarCollapse"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
         </li>
-    </ul> 
+    </ul>
     <div class="shadow-bottom"></div>
     <ul class="list-unstyled menu-categories" id="accordionExample">
         <li class="menu active">
@@ -74,10 +74,10 @@
                 </div>
             </a>
         </li>
-        
+
         <li class="menu menu-heading">
             <div class="heading"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-circle"><circle cx="12" cy="12" r="10"></circle></svg><span>ACCOUNT MANAGEMENT</span></div>
-        </li>                    
+        </li>
 
         <li class="menu">
             <a href="#pages" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
@@ -92,6 +92,9 @@
             <ul class="collapse submenu list-unstyled" id="pages" data-parent="#accordionExample">
                 <li>
                     <a href="{{ route('admin.contacts.index') }}"> Contact Desk </a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.contacts.index') }}"> Tracker Request </a>
                 </li>
             </ul>
         </li>
@@ -121,7 +124,7 @@
                 </li>
             </ul>
         </li>
-        
+
     </ul>
-    
+
 </nav>
