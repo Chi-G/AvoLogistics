@@ -14,16 +14,16 @@
 <script src="{{ asset('frontend/assets/js/magnific-popup.min.js')}}"></script>
 <!-- Nice Select Min JS -->
 <script src="{{ asset('frontend/assets/js/nice-select.min.js')}}"></script>
-<!-- Appear JS --> 
+<!-- Appear JS -->
 <script src="{{ asset('frontend/assets/js/jquery.appear.min.js')}}"></script>
-<!-- Odometer JS --> 
+<!-- Odometer JS -->
 <script src="{{ asset('frontend/assets/js/odometer.min.js')}}"></script>
-<!-- jarallax Min JS --> 
+<!-- jarallax Min JS -->
 <script src="{{ asset('frontend/assets/js/jarallax.min.js')}}"></script>
 <!-- Form Ajaxchimp Min JS -->
 <script src="{{ asset('frontend/assets/js/jquery.ajaxchimp.min.js')}}"></script>
 <!-- Form Validator Min JS -->
-<script src="{{ asset('frontend/assets/js/form-validator.min.js')}}"></script>
+{{-- <script src="{{ asset('frontend/assets/js/form-validator.min.js')}}"></script> --}}
 <!-- Contact JS -->
 {{-- <script src="{{ asset('frontend/assets/js/contact-form-script.js')}}"></script> --}}
 <!-- Custom JS -->

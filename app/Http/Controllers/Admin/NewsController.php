@@ -22,15 +22,15 @@ class NewsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'blog_bg_title' => 'required|string|max:255',
-            'blog_bg_desc' => 'required|string',
+            'blog_bg_title' => 'sometimes|string|max:255',
+            'blog_bg_desc' => 'sometimes|string',
             'image_sm' => 'required|image|mimes:jpg,png,jpeg|max:2048',
-            'blog_title' => 'required|string|max:255',
-            'blog_short_desc' => 'required|string',
+            'blog_title' => 'sometimes|string|max:255',
+            'blog_short_desc' => 'sometimes|string',
             'image_bg' => 'required|image|mimes:jpg,png,jpeg|max:2048',
-            'blog_long_desc1' => 'required|string',
-            'blog_long_desc2' => 'required|string',
-            'blog_snippet' => 'required|string',
+            'blog_long_desc1' => 'sometimes|string',
+            'blog_long_desc2' => 'sometimes|string',
+            'blog_snippet' => 'sometimes|string',
         ]);
 
         $data = $request->all();
@@ -51,28 +51,28 @@ class NewsController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'blog_bg_title' => 'required|string|max:255',
-            'blog_bg_desc' => 'required|string',
+            'blog_bg_title' => 'nullable|required|string|max:255',
+            'blog_bg_desc' => 'nullable|required|string',
             'image_sm' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
-            'blog_title' => 'required|string|max:255',
-            'blog_short_desc' => 'required|string',
+            'blog_title' => 'nullable|required|string|max:255',
+            'blog_short_desc' => 'nullable|required|string',
             'image_bg' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
-            'blog_long_desc1' => 'required|string',
-            'blog_long_desc2' => 'required|string',
-            'blog_snippet' => 'required|string',
+            'blog_long_desc1' => 'nullable|required|string',
+            'blog_long_desc2' => 'nullable|required|string',
+            'blog_snippet' => 'nullable|required|string',
         ]);
 
         $news = News::findOrFail($id);
-        $data = $request->all();
+        $data = $request->except('_token', '_method');
 
         if ($request->hasFile('image_sm')) {
-            $data['image_sm'] = $request->file('image_sm')->store('news/images', 'public');
+            $data['image_sm'] = $request->file('image_sm')->store('blog_images', 'public');
         } else {
             $data['image_sm'] = $news->image_sm;
         }
 
         if ($request->hasFile('image_bg')) {
-            $data['image_bg'] = $request->file('image_bg')->store('news/images', 'public');
+            $data['image_bg'] = $request->file('image_bg')->store('blog_images', 'public');
         } else {
             $data['image_bg'] = $news->image_bg;
         }

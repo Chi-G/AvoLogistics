@@ -102,44 +102,9 @@
 							</ul>
 							<div class="tab_content">
 								<div class="tabs_item">
-                                    <form action="{{ route('quote.store') }}" method="POST">
+
+									<form action="{{ route('quote.store') }}" method="POST">
                                         @csrf
-                                        <label for="name">Name:</label>
-                                        <input type="text" id="name" name="name" required>
-
-                                        <label for="email">Email:</label>
-                                        <input type="email" id="email" name="email" required>
-
-                                        <label for="phone">Phone:</label>
-                                        <input type="text" id="phone" name="phone" required>
-
-                                        <label for="vehicle_type">Vehicle Type:</label>
-                                        <input type="text" id="vehicle_type" name="vehicle_type" required>
-
-                                        <label for="city_of_departure">City of Departure:</label>
-                                        <input type="text" id="city_of_departure" name="city_of_departure" required>
-
-                                        <label for="departure_time">Departure Time:</label>
-                                        <input type="time" id="departure_time" name="departure_time" required>
-
-                                        <label for="type_of_goods">Type of Goods:</label>
-                                        <input type="text" id="type_of_goods" name="type_of_goods" required>
-
-                                        <label for="weight_of_shipment">Weight of Shipment:</label>
-                                        <input type="number" id="weight_of_shipment" name="weight_of_shipment" required>
-
-                                        <label for="delivery_type">Delivery Type:</label>
-                                        <input type="text" id="delivery_type" name="delivery_type" required>
-
-                                        <label for="date_of_shipment">Date of Shipment:</label>
-                                        <input type="date" id="date_of_shipment" name="date_of_shipment" required>
-
-                                        <button type="submit">Submit</button>
-                                    </form>
-
-									{{-- <form action="{{ route('quote.store') }}" method="POST">
-                                        @csrf
-
                                         <div class="row">
                                             <div class="col-lg-8">
                                                 <div class="row">
@@ -228,14 +193,14 @@
                                                     <div class="col-lg-3 col-sm-6 col-md-3">
                                                         <label class="single-check">
                                                             Road Freight
-                                                            <input type="radio" value="Road Freight" name="delivery_type">
+                                                            <input type="radio" value="Road Freight" name="delivery_type" required>
                                                             <span class="checkmark"></span>
                                                         </label>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-12">
-                                                        <button type="submit" class="default-btn">Request A Quote</button>
+                                                        <input type="submit" class="default-btn" value="submit">
                                                     </div>
                                                 </div>
                                             </div>
@@ -243,14 +208,12 @@
                                                 <div class="track-img"></div>
                                             </div>
                                         </div>
-                                    </form> --}}
-
+                                    </form>
 								</div>
 
-								<div class="tabs_item">
-									<form action="{{ route('track.store') }}" method="POST">
+                                <div class="tabs_item">
+                                    <form id="trackForm" method="POST">
                                         @csrf
-
                                         <div class="row">
                                             <div class="col-lg-8">
                                                 <div class="row">
@@ -259,13 +222,8 @@
                                                         <div class="form-group">
                                                             <select name="shipment_type" class="form-control" required>
                                                                 <option value="">Select Shipment/Property type</option>
-                                                                <option value="1">Property Used For</option>
-                                                                <option value="2">Home Insurance</option>
-                                                                <option value="0">Business Insurance</option>
-                                                                <option value="3">Health Insurance</option>
-                                                                <option value="4">Travel Insurance</option>
-                                                                <option value="5">Car Insurance</option>
-                                                                <option value="6">Life Insurance</option>
+                                                                <option value="1">Express Delivery</option>
+                                                                <option value="2">Road Freight</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -289,7 +247,7 @@
                                                     <div class="col-lg-3 col-sm-6 col-md-3">
                                                         <label class="single-check">
                                                             Road Freight
-                                                            <input type="radio" value="Road Freight" name="delivery_type">
+                                                            <input type="radio" value="Road Freight" name="delivery_type" required>
                                                             <span class="checkmark"></span>
                                                         </label>
                                                     </div>
@@ -307,7 +265,29 @@
                                         </div>
                                     </form>
 
-								</div>
+                                    <!-- Modal -->
+                                    <div class="modal fade modal-notification" id="standardModal" tabindex="-1" role="dialog" aria-labelledby="standardModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-body text-center">
+                                                    <div class="icon-content">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell">
+                                                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                                                            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                                                        </svg>
+                                                    </div>
+                                                    <p class="modal-text" id="modalMessage"></p>
+                                                </div>
+                                                <div class="modal-footer justify-content-between">
+                                                    <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Discard</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
 							</div>
 						</div>
 					</div>
@@ -813,5 +793,36 @@
 
         <!-- Jquery Min JS -->
         @include('includes.script')
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                document.getElementById('trackForm').addEventListener('submit', function (event) {
+                    event.preventDefault();
+
+                    const formData = new FormData(this);
+
+                    fetch('{{ route('track.store') }}', {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value
+                        },
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        const modalMessage = document.getElementById('modalMessage');
+                        if (data.success) {
+                            modalMessage.innerText = `Tracking information found: ${data.tracking_number}`;
+                        } else {
+                            modalMessage.innerText = 'No tracking information found for the provided tracking number.';
+                        }
+                        $('#standardModal').modal('show');
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+                });
+            });
+        </script>
     </body>
 </html>

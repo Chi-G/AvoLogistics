@@ -55,7 +55,7 @@
 							<ul>
 								<li>
 									<a href="{{ url('/') }}">
-										Home 
+										Home
 									</a>
 								</li>
 								<li>About Us</li>
@@ -124,19 +124,19 @@
 								<div class="tab_content">
 									<div class="tabs_item">
 										<p>Our mission is to provide reliable and efficient logistics solutions that exceed customer expectations. We strive to innovate and improve our services to ensure the highest level of satisfaction.</p>
-		
+
 										<p>We are committed to delivering value through our comprehensive range of services, including warehousing, air freight, ocean freight, and road freight, tailored to meet the unique needs of each client.</p>
 									</div>
-			
+
 									<div class="tabs_item">
 										<p>Our vision is to be the leading logistics company, known for our excellence in service, operational efficiency, and innovative solutions. We aim to create a seamless and integrated logistics experience for our customers worldwide.</p>
-		
+
 										<p>We envision a future where logistics is simplified, and businesses can rely on us for all their transportation needs, allowing them to focus on their core activities and growth.</p>
 									</div>
 
 									<div class="tabs_item">
 										<p>Our core values guide us in every aspect of our business. We prioritize customer satisfaction, operational integrity, and continuous improvement. Our team is dedicated to providing exceptional service and building long-lasting relationships with our clients.</p>
-		
+
 										<p>We value transparency, accountability, and teamwork. These principles ensure that we deliver on our promises and maintain the trust and loyalty of our customers.</p>
 									</div>
 								</div>
@@ -163,7 +163,7 @@
 							<p class="mb-2">AVO Logistics is committed to providing reliable, efficient, and express logistics and transport solutions. Our expert team ensures timely delivery and exceptional service quality, tailored to meet your specific needs.</p>
 							<p>We specialize in a variety of logistics services, including air, sea, and land transportation, warehousing, and supply chain management. Our goal is to offer comprehensive solutions that drive success and satisfaction for our clients.</p>
 						</div>
-					</div>									
+					</div>
 					<div class="col-lg-6 pr-0">
 						<div class="about-img inner-about-img">
 							<div class="about-list">
@@ -246,7 +246,7 @@
 			</div>
 		</section>
 		<!-- End Counter Area -->
-		
+
 		<!-- Start Brand Area -->
 		<div class="brand-area pt-70 pb-70">
 			<div class="container">
@@ -291,7 +291,7 @@
                        <div class="facts-img"></div>
                     </div>
                     <div class="col-lg-6">
-                        <div class="skill-bar-wrapper"> 
+                        <div class="skill-bar-wrapper">
                             <div class="fun-facts-content">
                                 <span>Fun Facts</span>
                                 <h2>Providing A Range Of High Services & Solutions Worldwide</h2>
@@ -337,7 +337,7 @@
                                 <div class="progress-content-outter">
                                     <div class="progress-content"></div>
                                 </div>
-                            </div> 
+                            </div>
                             <div class="skill-bar" data-percentage="80%">
                                 <h4 class="progress-title-holder clearfix">
                                     <span class="progress-title">Road Freight</span>
@@ -351,7 +351,7 @@
                                 <div class="progress-content-outter">
                                     <div class="progress-content"></div>
                                 </div>
-                            </div> 
+                            </div>
                             <div class="skill-bar mb-0" data-percentage="75%">
                                 <h4 class="progress-title-holder clearfix">
                                     <span class="progress-title">Air Freight</span>
@@ -365,7 +365,7 @@
                                 <div class="progress-content-outter">
                                     <div class="progress-content"></div>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -379,11 +379,7 @@
         <!-- End Fun Facts Area -->
 
 		<!-- Start Subscribe Area -->
-		<div class="subscribe-area ptb-100">
-			<div class="container">
-			
-			</div>
-		</div>
+		<hr>
 		<!-- End Subscribe Area -->
 
 		<!-- Start Footer Bottom Area -->
@@ -395,9 +391,9 @@
 			<i class='bx bx-chevrons-up bx-fade-up'></i>
 			<i class='bx bx-chevrons-up bx-fade-up'></i>
 		</div>
-		<!-- End Go Top Area --> 
+		<!-- End Go Top Area -->
 
-        
+
         <!-- Jquery Min JS -->
         @include('includes.script')
     </body>

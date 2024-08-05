@@ -5,9 +5,9 @@
         <meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <!-- Bootstrap Min CSS --> 
+        <!-- Bootstrap Min CSS -->
         @include('includes.css')
-		
+
         <!-- Title -->
         <title>AVO Logistics - Teams</title>
     </head>
@@ -55,7 +55,7 @@
 							<ul>
 								<li>
 									<a href="{{ url('/') }}">
-										Home 
+										Home
 									</a>
 								</li>
 								<li>Team</li>
@@ -74,7 +74,7 @@
 					<span>Our Team</span>
 					<h2>Meet the Experts Behind AVO Logistics</h2>
 					<p>At AVO Logistics, our team of dedicated professionals is committed to delivering exceptional logistics solutions. With years of experience and a passion for excellence, we work tirelessly to ensure your logistics needs are met efficiently and effectively.</p>
-				</div>				
+				</div>
 				<div class="row">
 					@foreach($teams as $team)
 						<div class="col-lg-4 col-sm-6">
@@ -117,7 +117,7 @@
 							</div>
 						</div>
 						@endforeach
-					
+
 					<div class="col-lg-12">
 						<div class="page-navigation-area">
 							<nav aria-label="Page navigation example text-center">
@@ -131,11 +131,7 @@
 		<!-- End Team Area -->
 
 		<!-- Start Subscribe Area -->
-		<div class="subscribe-area ptb-100">
-			<div class="container">
-			
-			</div>
-		</div>
+		<hr>
 		<!-- End Subscribe Area -->
 
 		<!-- Start Footer Bottom Area -->
@@ -147,9 +143,9 @@
 			<i class='bx bx-chevrons-up bx-fade-up'></i>
 			<i class='bx bx-chevrons-up bx-fade-up'></i>
 		</div>
-		<!-- End Go Top Area --> 
+		<!-- End Go Top Area -->
 
-        
+
         <!-- Jquery Min JS -->
         @include('includes.script')
     </body>

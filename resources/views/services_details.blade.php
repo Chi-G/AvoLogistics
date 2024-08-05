@@ -49,7 +49,7 @@
 				<div class="page-title-content">
 					<div class="row align-items-center">
 						<div class="col-lg-6 col-sm-6">
-							<h2>News Grid</h2>
+							<h2>Service Detail</h2>
 						</div>
 						<div class="col-lg-6 col-sm-6">
 							<ul>
@@ -58,7 +58,7 @@
 										Home
 									</a>
 								</li>
-								<li>News Grid</li>
+								<li>Service Details</li>
 							</ul>
 						</div>
 					</div>
@@ -67,58 +67,19 @@
 		</div>
 		<!-- End Page Title Area -->
 
-		<!-- Start Blog Area -->
-		<section class="blog-area blog-inner-area ptb-100">
-			<div class="container">
-				<div class="section-title">
-					<span>News & Blog</span>
-					<h2>Stay Updated with the Latest News and Insights</h2>
-					<p>Welcome to our News & Blog section, where you can find the latest updates, industry trends, and expert insights from AVO Logistics. Stay informed about our services, achievements, and future plans as we continue to innovate and excel in the logistics sector.</p>
-				</div>
-				<div class="row">
-					@foreach ($blogs as $blog)
-						<div class="col-lg-4 col-md-6">
-							<div class="single-blog">
-								<a href="{{ route('blogs.show', ['blog' => $blog->id]) }}">
-									<img src="{{ $blog->image_sm ? asset('storage/' . $blog->image_sm) : asset('backend/assets/img/default.jpg') }}" alt="{{ $blog->image_sm }}">
-								</a>
-								<div class="blog-content">
-									<ul>
-										<li>
-											<a href="{{ route('blogs.show', ['blog' => $blog->id]) }}">By: Jon Smith</a>
-										</li>
-										<li>Delivery</li>
-										<li>{{ $blog->created_at->format('d M, Y') }}</li>
-									</ul>
-									<h3>
-										<a href="{{ route('blogs.show', ['blog' => $blog->id]) }}">
-											{{ $blog->blog_title }}
-										</a>
-									</h3>
-									<p>{{ $blog->blog_short_desc }}</p>
-									<a class="read-more" href="{{ route('blogs.show', ['blog' => $blog->id]) }}">
-										Read More
-										<i class='bx bx-right-arrow-alt'></i>
-									</a>
-								</div>
-							</div>
-						</div>
-					@endforeach
 
-					<div class="col-lg-12">
-						<div class="page-navigation-area">
-							{{ $blogs->links('pagination::bootstrap-5') }}
 
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- End Blog Area -->
 
-        <hr>
 
-		<!-- Start Footer Bottom Area -->
+
+
+
+
+
+
+
+
+        <!-- Start Footer Bottom Area -->
 		@include('includes.footer')
 		<!-- End Footer Bottom Area -->
 

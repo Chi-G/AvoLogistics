@@ -7,12 +7,16 @@ use App\Models\RequestAQuote;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\AdminQuoteRequest;
 use App\Mail\UserQuoteRequest;
+use Illuminate\Support\Facades\Log;
 
 class RequestAQuoteController extends Controller
 {
     public function store(Request $request)
     {
+        Log::info('Request received:', $request->all());
+
         dd($request);
+
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',

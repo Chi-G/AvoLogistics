@@ -42,18 +42,18 @@
 
         <!--  BEGIN SIDEBAR  -->
         <div class="sidebar-wrapper sidebar-theme">
-            
+
             @include('admin.include.sidebar')
 
         </div>
         <!--  END SIDEBAR  -->
-        
+
         <!--  BEGIN CONTENT AREA  -->
         <div id="content" class="main-content">
             <div class="layout-px-spacing">
 
                 <div class="row layout-top-spacing" id="cancel-row">
-                
+
                     <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
                         <div class="widget-content widget-content-area br-6">
 
@@ -115,8 +115,8 @@
                                                 <td>{{ $service->offer_desc3 }}</td>
                                                 <td>{{ $service->service_details_title }}</td>
                                                 <td>{{ $service->service_details_bg_desc }}</td>
-                                                <td>{{ $service->created_at->format('d M, Y') }}</td>
                                                 <td><img src="{{ asset('storage/' . $service->image) }}" alt="{{ $service->service_title1 }}" width="100"></td>
+                                                <td>{{ $service->created_at->format('d M, Y') }}</td>
                                                 <td class="text-center">
                                                     <div class="dropdown custom-dropdown">
                                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -155,7 +155,7 @@
     <script src="{{asset('backend/bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('backend/plugins/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
     <script src="{{asset('backend/assets/js/app.js')}}"></script>
-    
+
     <script>
         $(document).ready(function() {
             App.init();
@@ -184,7 +184,7 @@
             },
             "stripeClasses": [],
             "lengthMenu": [5, 10, 20, 50],
-            "pageLength": 5 
+            "pageLength": 5
         });
     </script>
 

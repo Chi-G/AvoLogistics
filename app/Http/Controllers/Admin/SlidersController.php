@@ -44,9 +44,6 @@ class SlidersController extends Controller
         // Save the slider
         $slider->save();
 
-        // to record the logger for dashboard
-        ActivityLogger::log('task', 'Slider Created', 'A new slider was created: ' . $request->title);
-
         // Redirect to the sliders index page with a success message
         return redirect()->route('admin.sliders.index')->with('success', 'Slider created successfully.');
     }
@@ -67,7 +64,7 @@ class SlidersController extends Controller
         // Validate the request data
         $request->validate([
             'title' => 'sometimes|required|string|max:255',
-            'description' => 'sometimes|required|string', 
+            'description' => 'sometimes|required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 

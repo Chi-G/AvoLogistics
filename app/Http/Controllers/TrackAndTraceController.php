@@ -19,9 +19,15 @@ class TrackAndTraceController extends Controller
         $quote = RequestAQuote::where('tracking_number', $trackingNumber)->first();
 
         if ($quote) {
-            return redirect()->back()->with('success', 'Tracking information found: ' . $quote->tracking_number);
+            return response()->json([
+                'success' => true,
+                'tracking_number' => $quote->tracking_number
+            ]);
         } else {
-            return redirect()->back()->with('error', 'No tracking information found for the provided tracking number.');
+            return response()->json([
+                'success' => false,
+                'message' => 'No tracking information found for the provided tracking number.'
+            ]);
         }
     }
 }

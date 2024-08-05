@@ -5,9 +5,9 @@
         <meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <!-- Bootstrap Min CSS --> 
+        <!-- Bootstrap Min CSS -->
         @include('includes.css')
-		
+
         <!-- Title -->
         <title>AVO Logistics - Services</title>
     </head>
@@ -55,7 +55,7 @@
 							<ul>
 								<li>
 									<a href="{{ url('/') }}">
-										Home 
+										Home
 									</a>
 								</li>
 								<li>Services</li>
@@ -169,15 +169,71 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-12">
-						<div class="service-all text-center">
-							<p>You can also <a href="service-details.html">Schedule An Appointment</a> to get in touch with us.</p>    
-						</div>                                           
-					</div>
+
 				</div>
 			</div>
 		</section>
 		<!-- End Service Area -->
+
+        <!-- Start Why Choose Us Area -->
+        <section class="choose-us-area">
+			<div class="container">
+				<div class="section-title">
+					<span>Why Choose Us</span>
+					<h2>We are best among them</h2>
+				</div>
+				<div class="row">
+					<div class="col-lg-8 pr-0">
+						<div class="choose-tab-wrap">
+							<h2>Why our Company is best</h2>
+							<div class="tab quote-list-tab choose-tab">
+								<ul class="tabs">
+									<li>
+										<a href="javascript:;">
+											Our Mission
+										</a>
+									</li>
+									<li>
+										<a href="javascript:;">
+											Our Vision
+										</a>
+									</li>
+									<li>
+										<a href="javascript:;">
+											Our Goal
+										</a>
+									</li>
+								</ul>
+								<div class="tab_content">
+									<div class="tabs_item">
+										<p>Our mission is to provide reliable and efficient logistics solutions that exceed customer expectations. We strive to innovate and improve our services to ensure the highest level of satisfaction.</p>
+
+										<p>We are committed to delivering value through our comprehensive range of services, including warehousing, air freight, ocean freight, and road freight, tailored to meet the unique needs of each client.</p>
+									</div>
+
+									<div class="tabs_item">
+										<p>Our vision is to be the leading logistics company, known for our excellence in service, operational efficiency, and innovative solutions. We aim to create a seamless and integrated logistics experience for our customers worldwide.</p>
+
+										<p>We envision a future where logistics is simplified, and businesses can rely on us for all their transportation needs, allowing them to focus on their core activities and growth.</p>
+									</div>
+
+									<div class="tabs_item">
+										<p>Our core values guide us in every aspect of our business. We prioritize customer satisfaction, operational integrity, and continuous improvement. Our team is dedicated to providing exceptional service and building long-lasting relationships with our clients.</p>
+
+										<p>We value transparency, accountability, and teamwork. These principles ensure that we deliver on our promises and maintain the trust and loyalty of our customers.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 pl-0">
+						<div class="choose-img choose-img-two">
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+        <!-- End Why Choose Us Area -->
 
 		<!-- Start Fun Facts Area -->
 		<section class="fun-facts-area pt-100 pb-70">
@@ -230,11 +286,7 @@
         <!-- End Fun Facts Area -->
 
 		<!-- Start Subscribe Area -->
-		<div class="subscribe-area ptb-100">
-			<div class="container">
-			 
-			</div>
-		</div>
+		<hr>
 		<!-- End Subscribe Area -->
 
 		<!-- Start Footer Bottom Area -->
@@ -246,9 +298,9 @@
 			<i class='bx bx-chevrons-up bx-fade-up'></i>
 			<i class='bx bx-chevrons-up bx-fade-up'></i>
 		</div>
-		<!-- End Go Top Area --> 
+		<!-- End Go Top Area -->
 
-        
+
         <!-- Jquery Min JS -->
         @include('includes.script')
     </body>

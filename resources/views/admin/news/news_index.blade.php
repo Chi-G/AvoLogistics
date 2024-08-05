@@ -42,18 +42,18 @@
 
         <!--  BEGIN SIDEBAR  -->
         <div class="sidebar-wrapper sidebar-theme">
-            
+
             @include('admin.include.sidebar')
 
         </div>
         <!--  END SIDEBAR  -->
-        
+
         <!--  BEGIN CONTENT AREA  -->
         <div id="content" class="main-content">
             <div class="layout-px-spacing">
 
                 <div class="row layout-top-spacing" id="cancel-row">
-                
+
                     <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
                         <div class="widget-content widget-content-area br-6">
 
@@ -137,7 +137,7 @@
     <script src="{{asset('backend/bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('backend/plugins/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
     <script src="{{asset('backend/assets/js/app.js')}}"></script>
-    
+
     <script>
         $(document).ready(function() {
             App.init();
@@ -166,7 +166,7 @@
             },
             "stripeClasses": [],
             "lengthMenu": [5, 10, 20, 50],
-            "pageLength": 5 
+            "pageLength": 5
         });
     </script>
 
