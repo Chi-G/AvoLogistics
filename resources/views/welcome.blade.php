@@ -102,105 +102,141 @@
 							</ul>
 							<div class="tab_content">
 								<div class="tabs_item">
-
-									<form action="{{ route('quote.store') }}" method="POST">
+                                    <form action="{{ route('quote.store') }}" method="POST">
                                         @csrf
                                         <div class="row">
                                             <div class="col-lg-8">
                                                 <div class="row">
                                                     <div class="col-12">
-                                                        <h3>Personal Data</h3>
+                                                        <h3>Personal Details</h3>
                                                     </div>
                                                     <div class="col-lg-4 col-sm-6">
                                                         <div class="form-group">
-                                                            <input type="text" name="name" class="form-control" placeholder="Your Name*" required>
+                                                            <input type="text" name="name" class="form-control" placeholder="Your Name*" >
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4 col-sm-6">
                                                         <div class="form-group">
-                                                            <input type="email" name="email" class="form-control" placeholder="Your Email*" required>
+                                                            <input type="email" name="email" class="form-control" placeholder="Your Email*" >
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
-                                                            <input type="text" name="phone" class="form-control" placeholder="Your Phone*" required>
+                                                            <input type="text" name="phone" class="form-control" placeholder="Your Phone*" >
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-12">
-                                                        <h3>Shipment Data</h3>
+                                                        <h3>Shipment Details</h3>
                                                     </div>
                                                     <div class="col-lg-4 col-sm-6">
                                                         <div class="form-group">
-                                                            <select name="vehicle_type" class="form-control" required>
+                                                            <select name="vehicle_type" class="form-control" >
                                                                 <option value="Default">Type of Vehicle</option>
-                                                                <option value="1">Type of flight One</option>
-                                                                <option value="2">Type of flight Two</option>
-                                                                <option value="0">Type of flight Three</option>
-                                                                <option value="3">Type of flight Four</option>
-                                                                <option value="4">Type of flight Five</option>
-                                                                <option value="5">Type of flight Six</option>
-                                                                <option value="6">Type of flight Seven</option>
+                                                                <option value="big_truck">Big Truck</option>
+                                                                <option value="mini_truck">Mini Truck</option>
+                                                                <option value="bus">Bus</option>
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-4 col-sm-6">
+                                                    <div class="col-lg-8">
                                                         <div class="form-group">
-                                                            <input type="text" name="city_of_departure" class="form-control" placeholder="City of Departure" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="form-group">
-                                                            <input type="time" name="departure_time" class="form-control" placeholder="Departure Time" required>
+                                                            <input type="time" name="departure_time" class="form-control" placeholder="Departure Time" >
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-lg-4 col-sm-6">
                                                         <div class="form-group">
-                                                            <select name="type_of_goods" class="form-control" required>
+                                                            <select name="type_of_goods" class="form-control" >
                                                                 <option value="Default">Type of Goods</option>
-                                                                <option value="1">Incomers One</option>
-                                                                <option value="2">Incomers Two</option>
-                                                                <option value="0">Incomers Three</option>
-                                                                <option value="3">Incomers Four</option>
-                                                                <option value="4">Travel Insurance Five</option>
-                                                                <option value="5">Incomers Six</option>
-                                                                <option value="6">Incomers Seven</option>
+                                                                <option value="small">Small</option>
+                                                                <option value="medium">Medium</option>
+                                                                <option value="large">Large</option>
                                                             </select>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4 col-sm-6">
                                                         <div class="form-group">
-                                                            <input type="text" name="weight_of_shipment" class="form-control" placeholder="Weight of Shipment (KG)" required>
+                                                            <input type="text" name="weight_of_shipment" class="form-control" placeholder="Weight of Shipment (KG)" >
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4 col-sm-6">
                                                         <div class="form-group">
-                                                            <input type="date" name="date_of_shipment" class="form-control" placeholder="Date of Shipment" required>
+                                                            <input type="date" name="date_of_shipment" class="form-control" placeholder="Date of Shipment" >
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row mb-30">
+                                                    <h3>Select Route Type</h3>
+                                                    <div class="col-lg-3 col-sm-6 col-md-3">
+                                                        <label class="single-check" for="easternRoute">
+                                                            Eastern Route
+                                                            <input type="radio" id="easternRoute" name="route_type" value="eastern" onclick="toggleRouteSelect('eastern')" >
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-lg-3 col-sm-6 col-md-3">
+                                                        <label class="single-check" for="northernRoute">
+                                                            Northern Route
+                                                            <input type="radio" id="northernRoute" name="route_type" value="northern" onclick="toggleRouteSelect('northern')" >
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-lg-6 col-sm-6" id="easternSelect" style="display:none;">
+                                                        <div class="form-group">
+                                                            <select name="stateroute" class="form-control">
+                                                                <option value="">Eastern Route</option>
+                                                                <option value="Aba_to_Porthacourt">Aba to Porthacourt</option>
+                                                                <option value="Aba_to_Calabar">Aba to Calabar</option>
+                                                                <option value="Aba_to_Uyo">Aba to Uyo</option>
+                                                                <option value="Aba_to_Imo">Aba to Imo</option>
+                                                                <option value="Aba_to_Enugu">Aba to Enugu</option>
+                                                                <option value="Aba_to_Awka">Aba to Awka</option>
+                                                                <option value="Aba_to_Delta">Aba to Delta</option>
+                                                                <option value="Aba_to_Ebonyi">Aba to Ebonyi</option>
+                                                                <option value="Aba_to_Kogi">Aba to Kogi</option>
+                                                                <option value="Aba_to_Abuja">Aba to Abuja</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-sm-6" id="northernSelect" style="display:none;">
+                                                        <div class="form-group">
+                                                            <select name="stateroute" class="form-control">
+                                                                <option value="">Northern Route</option>
+                                                                <option value="Abuja_to_Kaduna">Abuja to Kaduna</option>
+                                                                <option value="Abuja_to_Kano">Abuja to Kano</option>
+                                                                <option value="Abuja_to_Jigawa">Abuja to Jigawa</option>
+                                                                <option value="Abuja_to_Gombe">Abuja to Gombe</option>
+                                                                <option value="Abuja_to_Bauchi">Abuja to Bauchi</option>
+                                                                <option value="Abuja_to_Jos">Abuja to Jos</option>
+                                                                <option value="Abuja_to_Nasarawa">Abuja to Nasarawa</option>
+                                                                <option value="Abuja_to_Benue">Abuja to Benue</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-30">
+                                                    <h3>Select Delivery Type</h3>
                                                     <div class="col-lg-3 col-sm-6 col-md-3">
                                                         <label class="single-check">
                                                             Express Delivery
-                                                            <input type="radio" value="Express Delivery" checked="checked" name="delivery_type" required>
+                                                            <input type="radio" value="Express Delivery" name="delivery_type" >
                                                             <span class="checkmark"></span>
                                                         </label>
                                                     </div>
                                                     <div class="col-lg-3 col-sm-6 col-md-3">
                                                         <label class="single-check">
                                                             Road Freight
-                                                            <input type="radio" value="Road Freight" name="delivery_type" required>
+                                                            <input type="radio" value="Road Freight" name="delivery_type" >
                                                             <span class="checkmark"></span>
                                                         </label>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-12">
-                                                        <input type="submit" class="default-btn" value="submit">
+                                                        <button type="submit" class="default-btn" data-toggle="modal" data-target="#standardModal">Request Quote</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -209,10 +245,10 @@
                                             </div>
                                         </div>
                                     </form>
-								</div>
+                                </div>
 
                                 <div class="tabs_item">
-                                    <form id="trackForm" method="POST">
+                                    <form action="{{ route('track.store') }}" id="trackForm" method="POST">
                                         @csrf
                                         <div class="row">
                                             <div class="col-lg-8">
@@ -267,26 +303,22 @@
 
                                     <!-- Modal -->
                                     <div class="modal fade modal-notification" id="standardModal" tabindex="-1" role="dialog" aria-labelledby="standardModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-body text-center">
-                                                    <div class="icon-content">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell">
-                                                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-                                                            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-                                                        </svg>
-                                                    </div>
-                                                    <p class="modal-text" id="modalMessage"></p>
+                                        <div class="modal-dialog" role="document" id="standardModalLabel">
+                                        <div class="modal-content">
+                                            <div class="modal-body text-center">
+                                                <div class="icon-content">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
                                                 </div>
-                                                <div class="modal-footer justify-content-between">
-                                                    <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Discard</button>
-                                                </div>
+                                                <p class="modal-text">Thank you for requesting a quote. We will get back to you shortly.</p>
                                             </div>
+                                            <div class="modal-footer justify-content-between">
+                                            <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Cancel</button>
+                                            <button type="button" class="btn btn-primary">Okay</button>
+                                            </div>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
-
-
 
 							</div>
 						</div>
@@ -795,32 +827,81 @@
         @include('includes.script')
 
         <script>
+            function toggleRouteSelect(routeType) {
+                document.getElementById('easternSelect').style.display = (routeType === 'eastern') ? 'block' : 'none';
+                document.getElementById('northernSelect').style.display = (routeType === 'northern') ? 'block' : 'none';
+            }
+        </script>
+
+        <script>
+            $(document).ready(function () {
+                $('#quoteForm').on('submit', function (event) {
+                    event.preventDefault(); // Prevent the default form submission
+
+                    $.ajax({
+                        url: $(this).attr('action'), // Use the form's action attribute value for the URL
+                        method: $(this).attr('method'), // Use the form's method attribute value
+                        data: $(this).serialize(), // Serialize the form data
+                        success: function (response) {
+                            if (response.success) {
+                                $('.modal-text').text(response.success);
+                                $('#standardModal').modal('show');
+                            }
+                        },
+                        error: function (error) {
+                            // Handle the error case
+                            $('.modal-text').text('There was an error submitting your request. Please try again.');
+                            $('#standardModal').modal('show');
+                        }
+                    });
+                });
+
+                $('#confirmSubmit').on('click', function () {
+                    $('#standardModal').modal('hide');
+                });
+            });
+        </script>
+
+        <script>
             document.addEventListener('DOMContentLoaded', function () {
-                document.getElementById('trackForm').addEventListener('submit', function (event) {
-                    event.preventDefault();
+                const requestQuoteForm = document.getElementById('request-quote-form');
+                requestQuoteForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
 
                     const formData = new FormData(this);
 
-                    fetch('{{ route('track.store') }}', {
+                    fetch('{{ route("quote.store") }}', {
                         method: 'POST',
+                        body: formData,
                         headers: {
-                            'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value
-                        },
-                        body: formData
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        }
                     })
                     .then(response => response.json())
                     .then(data => {
-                        const modalMessage = document.getElementById('modalMessage');
                         if (data.success) {
-                            modalMessage.innerText = `Tracking information found: ${data.tracking_number}`;
-                        } else {
-                            modalMessage.innerText = 'No tracking information found for the provided tracking number.';
+                            document.querySelector('.modal-text').innerHTML = `
+                                <p>Thank you for requesting a quote. We will get back to you shortly.</p>
+                                <p>Name: ${data.data.name}</p>
+                                <p>Email: ${data.data.email}</p>
+                                <p>Phone: ${data.data.phone}</p>
+                                <p>Vehicle Type: ${data.data.vehicle_type}</p>
+                                <p>City of Departure: ${data.data.city_of_departure}</p>
+                                <p>Departure Time: ${data.data.departure_time}</p>
+                                <p>Type of Goods: ${data.data.type_of_goods}</p>
+                                <p>Weight of Shipment: ${data.data.weight_of_shipment}</p>
+                                <p>Delivery Type: ${data.data.delivery_type}</p>
+                                <p>Tracking Number: ${data.data.tracking_number}</p>
+                                <p>Date of Shipment: ${data.data.date_of_shipment}</p>
+                                <p>Route Type: ${data.data.route_type}</p>
+                                <p>State Route: ${data.data.stateroute}</p>
+                                <p>Mileage: ${data.data.mileage} miles</p>
+                                <p>Total Cost: $${data.data.total_cost}</p>
+                            `;
+                            $('#standardModal').modal('show');
                         }
-                        $('#standardModal').modal('show');
                     })
-                    .catch(error => {
-                        console.error('Error:', error);
-                    });
+                    .catch(error => console.error('Error:', error));
                 });
             });
         </script>

@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('request_a_quote', function (Blueprint $table) {
+        Schema::create('request_a_quotes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('email');
@@ -22,6 +22,9 @@ return new class extends Migration
             $table->string('type_of_goods');
             $table->decimal('weight_of_shipment', 8, 2);
             $table->string('delivery_type');
+            $table->string('route_type')->nullable();
+            $table->string('stateroute')->nullable();
+            $table->decimal('total_cost', 8, 2)->nullable();
             $table->string('tracking_number')->nullable();
             $table->date('date_of_shipment')->nullable();
             $table->timestamps();
@@ -33,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('request_a_quote');
+        Schema::dropIfExists('request_a_quotes');
     }
 };

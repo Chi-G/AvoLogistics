@@ -21,5 +21,8 @@ class RequestAQuote extends Model
         'delivery_type',
         'tracking_number',
         'date_of_shipment',
+        'route_type',
+        'stateroute',
+        'total_cost',
     ];
 }
