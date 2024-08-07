@@ -16,6 +16,9 @@
         <!-- Bootstrap Min CSS -->
         @include('includes.css')
 
+        <!--  CUSTOM MODAL FILE  -->
+        <link href="{{asset('backend/assets/css/components/custom-modal.css')}}" rel="stylesheet" type="text/css" />
+
         <!-- Title -->
         <title>AVO Logistics - Easing the burden</title>
     </head>
@@ -102,9 +105,10 @@
 							</ul>
 							<div class="tab_content">
 								<div class="tabs_item">
-                                    <form action="{{ route('quote.store') }}" method="POST">
+                                    <form id="request-quote-form" action="{{ route('quote.store') }}" method="POST">
                                         @csrf
                                         <div class="row">
+                                            <!-- Personal Details -->
                                             <div class="col-lg-8">
                                                 <div class="row">
                                                     <div class="col-12">
@@ -112,27 +116,29 @@
                                                     </div>
                                                     <div class="col-lg-4 col-sm-6">
                                                         <div class="form-group">
-                                                            <input type="text" name="name" class="form-control" placeholder="Your Name*" >
+                                                            <input type="text" name="name" class="form-control" placeholder="Your Name*" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4 col-sm-6">
                                                         <div class="form-group">
-                                                            <input type="email" name="email" class="form-control" placeholder="Your Email*" >
+                                                            <input type="email" name="email" class="form-control" placeholder="Your Email*" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
-                                                            <input type="text" name="phone" class="form-control" placeholder="Your Phone*" >
+                                                            <input type="text" name="phone" class="form-control" placeholder="Your Phone*" required>
                                                         </div>
                                                     </div>
                                                 </div>
+
+                                                <!-- Shipment Details -->
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <h3>Shipment Details</h3>
                                                     </div>
                                                     <div class="col-lg-4 col-sm-6">
                                                         <div class="form-group">
-                                                            <select name="vehicle_type" class="form-control" >
+                                                            <select name="vehicle_type" class="form-control" required>
                                                                 <option value="Default">Type of Vehicle</option>
                                                                 <option value="big_truck">Big Truck</option>
                                                                 <option value="mini_truck">Mini Truck</option>
@@ -142,14 +148,16 @@
                                                     </div>
                                                     <div class="col-lg-8">
                                                         <div class="form-group">
-                                                            <input type="time" name="departure_time" class="form-control" placeholder="Departure Time" >
+                                                            <input type="time" name="departure_time" class="form-control" placeholder="Departure Time" required>
                                                         </div>
                                                     </div>
                                                 </div>
+
+                                                <!-- Type of Goods -->
                                                 <div class="row">
                                                     <div class="col-lg-4 col-sm-6">
                                                         <div class="form-group">
-                                                            <select name="type_of_goods" class="form-control" >
+                                                            <select name="type_of_goods" class="form-control"required>
                                                                 <option value="Default">Type of Goods</option>
                                                                 <option value="small">Small</option>
                                                                 <option value="medium">Medium</option>
@@ -159,34 +167,36 @@
                                                     </div>
                                                     <div class="col-lg-4 col-sm-6">
                                                         <div class="form-group">
-                                                            <input type="text" name="weight_of_shipment" class="form-control" placeholder="Weight of Shipment (KG)" >
+                                                            <input type="text" name="weight_of_shipment" class="form-control" placeholder="Weight of Shipment (KG)"required>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4 col-sm-6">
                                                         <div class="form-group">
-                                                            <input type="date" name="date_of_shipment" class="form-control" placeholder="Date of Shipment" >
+                                                            <input type="date" name="date_of_shipment" class="form-control" placeholder="Date of Shipment"required>
                                                         </div>
                                                     </div>
                                                 </div>
+
+                                                <!-- Route Type -->
                                                 <div class="row mb-30">
                                                     <h3>Select Route Type</h3>
                                                     <div class="col-lg-3 col-sm-6 col-md-3">
                                                         <label class="single-check" for="easternRoute">
                                                             Eastern Route
-                                                            <input type="radio" id="easternRoute" name="route_type" value="eastern" onclick="toggleRouteSelect('eastern')" >
+                                                            <input type="radio" id="easternRoute" name="route_type" value="eastern" onclick="toggleRouteSelect('eastern')" required>
                                                             <span class="checkmark"></span>
                                                         </label>
                                                     </div>
                                                     <div class="col-lg-3 col-sm-6 col-md-3">
                                                         <label class="single-check" for="northernRoute">
                                                             Northern Route
-                                                            <input type="radio" id="northernRoute" name="route_type" value="northern" onclick="toggleRouteSelect('northern')" >
+                                                            <input type="radio" id="northernRoute" name="route_type" value="northern" onclick="toggleRouteSelect('northern')" required>
                                                             <span class="checkmark"></span>
                                                         </label>
                                                     </div>
                                                     <div class="col-lg-6 col-sm-6" id="easternSelect" style="display:none;">
                                                         <div class="form-group">
-                                                            <select name="stateroute" class="form-control">
+                                                            <select id="easternRouteSelect" class="form-control" onchange="updateStaterouteValue('eastern')">
                                                                 <option value="">Eastern Route</option>
                                                                 <option value="Aba_to_Porthacourt">Aba to Porthacourt</option>
                                                                 <option value="Aba_to_Calabar">Aba to Calabar</option>
@@ -203,7 +213,7 @@
                                                     </div>
                                                     <div class="col-lg-6 col-sm-6" id="northernSelect" style="display:none;">
                                                         <div class="form-group">
-                                                            <select name="stateroute" class="form-control">
+                                                            <select id="northernRouteSelect" class="form-control" onchange="updateStaterouteValue('northern')">
                                                                 <option value="">Northern Route</option>
                                                                 <option value="Abuja_to_Kaduna">Abuja to Kaduna</option>
                                                                 <option value="Abuja_to_Kano">Abuja to Kano</option>
@@ -217,26 +227,33 @@
                                                         </div>
                                                     </div>
                                                 </div>
+
+                                                <!-- Hidden Field to Hold the Selected State Route -->
+                                                <input type="hidden" name="stateroute" id="staterouteInput">
+
+                                                <!-- Delivery Type -->
                                                 <div class="row mb-30">
                                                     <h3>Select Delivery Type</h3>
                                                     <div class="col-lg-3 col-sm-6 col-md-3">
                                                         <label class="single-check">
                                                             Express Delivery
-                                                            <input type="radio" value="Express Delivery" name="delivery_type" >
+                                                            <input type="radio" value="Express Delivery" name="delivery_type"required>
                                                             <span class="checkmark"></span>
                                                         </label>
                                                     </div>
                                                     <div class="col-lg-3 col-sm-6 col-md-3">
                                                         <label class="single-check">
                                                             Road Freight
-                                                            <input type="radio" value="Road Freight" name="delivery_type" >
+                                                            <input type="radio" value="Road Freight" name="delivery_type"required>
                                                             <span class="checkmark"></span>
                                                         </label>
                                                     </div>
                                                 </div>
+
+                                                <!-- Submit Button -->
                                                 <div class="row">
                                                     <div class="col-12">
-                                                        <button type="submit" class="default-btn" data-toggle="modal" data-target="#standardModal">Request Quote</button>
+                                                        <button type="submit" class="default-btn">Request Quote</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -245,6 +262,26 @@
                                             </div>
                                         </div>
                                     </form>
+                                </div>
+
+                                <!-- Modal for Request Quote -->
+                                <div class="modal fade" id="standardModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Quote Request Response</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="modal-text"></div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="tabs_item">
@@ -301,23 +338,26 @@
                                         </div>
                                     </form>
 
-                                    <!-- Modal -->
-                                    <div class="modal fade modal-notification" id="standardModal" tabindex="-1" role="dialog" aria-labelledby="standardModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document" id="standardModalLabel">
-                                        <div class="modal-content">
-                                            <div class="modal-body text-center">
-                                                <div class="icon-content">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                                    <!-- Modal for Tracking Quotes -->
+                                    <div class="modal fade" id="trackModal" tabindex="-1" role="dialog" aria-labelledby="trackModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="trackModalLabel">Tracking Information</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
                                                 </div>
-                                                <p class="modal-text">Thank you for requesting a quote. We will get back to you shortly.</p>
+                                                <div class="modal-body">
+                                                    <div class="track-modal-text"></div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                </div>
                                             </div>
-                                            <div class="modal-footer justify-content-between">
-                                            <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Cancel</button>
-                                            <button type="button" class="btn btn-primary">Okay</button>
-                                            </div>
-                                        </div>
                                         </div>
                                     </div>
+
                                 </div>
 
 							</div>
@@ -826,44 +866,30 @@
         <!-- Jquery Min JS -->
         @include('includes.script')
 
+        <!-- JS handling easter and northern switch select -->
         <script>
             function toggleRouteSelect(routeType) {
                 document.getElementById('easternSelect').style.display = (routeType === 'eastern') ? 'block' : 'none';
                 document.getElementById('northernSelect').style.display = (routeType === 'northern') ? 'block' : 'none';
+
+                // Clear the stateroute value when switching between route types
+                document.getElementById('staterouteInput').value = '';
+            }
+
+            function updateStaterouteValue(routeType) {
+                let selectedValue = '';
+                if (routeType === 'eastern') {
+                    selectedValue = document.getElementById('easternRouteSelect').value;
+                } else if (routeType === 'northern') {
+                    selectedValue = document.getElementById('northernRouteSelect').value;
+                }
+                document.getElementById('staterouteInput').value = selectedValue;
             }
         </script>
 
+        <!-- JS handling request-store form submission and modal -->
         <script>
-            $(document).ready(function () {
-                $('#quoteForm').on('submit', function (event) {
-                    event.preventDefault(); // Prevent the default form submission
-
-                    $.ajax({
-                        url: $(this).attr('action'), // Use the form's action attribute value for the URL
-                        method: $(this).attr('method'), // Use the form's method attribute value
-                        data: $(this).serialize(), // Serialize the form data
-                        success: function (response) {
-                            if (response.success) {
-                                $('.modal-text').text(response.success);
-                                $('#standardModal').modal('show');
-                            }
-                        },
-                        error: function (error) {
-                            // Handle the error case
-                            $('.modal-text').text('There was an error submitting your request. Please try again.');
-                            $('#standardModal').modal('show');
-                        }
-                    });
-                });
-
-                $('#confirmSubmit').on('click', function () {
-                    $('#standardModal').modal('hide');
-                });
-            });
-        </script>
-
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
+           document.addEventListener('DOMContentLoaded', function () {
                 const requestQuoteForm = document.getElementById('request-quote-form');
                 requestQuoteForm.addEventListener('submit', function (e) {
                     e.preventDefault();
@@ -879,30 +905,85 @@
                     })
                     .then(response => response.json())
                     .then(data => {
+                        const modalText = document.querySelector('.modal-text');
                         if (data.success) {
-                            document.querySelector('.modal-text').innerHTML = `
+                            const requestData = data.data;
+
+                            modalText.innerHTML = `
                                 <p>Thank you for requesting a quote. We will get back to you shortly.</p>
-                                <p>Name: ${data.data.name}</p>
-                                <p>Email: ${data.data.email}</p>
-                                <p>Phone: ${data.data.phone}</p>
-                                <p>Vehicle Type: ${data.data.vehicle_type}</p>
-                                <p>City of Departure: ${data.data.city_of_departure}</p>
-                                <p>Departure Time: ${data.data.departure_time}</p>
-                                <p>Type of Goods: ${data.data.type_of_goods}</p>
-                                <p>Weight of Shipment: ${data.data.weight_of_shipment}</p>
-                                <p>Delivery Type: ${data.data.delivery_type}</p>
-                                <p>Tracking Number: ${data.data.tracking_number}</p>
-                                <p>Date of Shipment: ${data.data.date_of_shipment}</p>
-                                <p>Route Type: ${data.data.route_type}</p>
-                                <p>State Route: ${data.data.stateroute}</p>
-                                <p>Mileage: ${data.data.mileage} miles</p>
-                                <p>Total Cost: $${data.data.total_cost}</p>
+                                <p><strong>Name:</strong> ${requestData.name}</p>
+                                <p><strong>Email:</strong> ${requestData.email}</p>
+                                <p><strong>Phone:</strong> ${requestData.phone}</p>
+                                <p><strong>Vehicle Type:</strong> ${requestData.vehicle_type}</p>
+                                <p><strong>Departure Time:</strong> ${requestData.departure_time}</p>
+                                <p><strong>Type of Goods:</strong> ${requestData.type_of_goods}</p>
+                                <p><strong>Weight of Shipment:</strong> ${requestData.weight_of_shipment} kg</p>
+                                <p><strong>Delivery Type:</strong> ${requestData.delivery_type}</p>
+                                <p><strong>Date of Shipment:</strong> ${requestData.date_of_shipment}</p>
+                                <p><strong>Route Type:</strong> ${requestData.route_type}</p>
+                                <p><strong>State Route:</strong> ${requestData.stateroute}</p>
+                                <p><strong>Total Cost:</strong> $${requestData.total_cost}</p>
+                                <p><strong>Tracking Number:</strong> ${requestData.tracking_number}</p>
                             `;
-                            $('#standardModal').modal('show');
+                        } else {
+                            let errorMessage = 'There was an error submitting your request. Please try again.';
+                            if (data.errors) {
+                                errorMessage = Object.values(data.errors).map(errorArray => errorArray.join(', ')).join('<br>');
+                            }
+                            modalText.innerHTML = errorMessage;
                         }
+
+                        $('#standardModal').modal('show');
                     })
-                    .catch(error => console.error('Error:', error));
+                    .catch(error => {
+                        console.error('Error:', error);
+                        document.querySelector('.modal-text').innerText = 'There was an error submitting your request. Please try again.';
+                        $('#standardModal').modal('show');
+                    });
                 });
+            });
+        </script>
+
+        <!-- JS handling track-store form submission and modal -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Handle track-store form submission
+                const trackForm = document.getElementById('trackForm');
+                if (trackForm) {
+                    trackForm.addEventListener('submit', function (e) {
+                        e.preventDefault();
+
+                        const formData = new FormData(this);
+
+                        fetch('{{ route("track.store") }}', {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                            }
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            const modalText = document.querySelector('.track-modal-text');
+                            if (data.success) {
+                                modalText.innerHTML = `
+                                    <p>Tracking Number: ${data.tracking_number}</p>
+                                    <p>Name: ${data.name}</p>
+                                    <p>Date of Shipment: ${data.date_of_shipment}</p>
+                                `;
+                            } else {
+                                modalText.innerHTML = `<p>${data.message}</p>`;
+                            }
+
+                            $('#trackModal').modal('show');
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            document.querySelector('.track-modal-text').innerText = 'There was an error checking your tracking information. Please try again.';
+                            $('#trackModal').modal('show');
+                        });
+                    });
+                }
             });
         </script>
     </body>

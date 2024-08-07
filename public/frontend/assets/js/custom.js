@@ -2,7 +2,7 @@
 	'use strict';
 
 	// Mean Menu
-	$('.mean-menu').meanmenu({ 
+	$('.mean-menu').meanmenu({
 		meanScreenWidth: "991"
 	});
 
@@ -13,10 +13,10 @@
 
 	// Nice Select JS
 	$('select').niceSelect();
-	
+
 	// Header Sticky
 	$(window).on('scroll', function() {
-		if ($(this).scrollTop() >150){  
+		if ($(this).scrollTop() >150){
 			$('.navbar-area').addClass("is-sticky");
 		}
 		else{
@@ -107,7 +107,7 @@
 				items:2
 			}
 		}
-		
+
 	});
 
 	// Brand Wrap
@@ -194,7 +194,7 @@
 		var scrolled = $(window).scrollTop();
 		if (scrolled > 300) $('.go-top').addClass('active');
 		if (scrolled < 300) $('.go-top').removeClass('active');
-	});  
+	});
 
 	// Click Event
 	$('.go-top').on('click', function() {
@@ -210,17 +210,17 @@
 		// Hide The Other Panels
 		$('.accordion-content').not($(this).next()).slideUp('fast');
 		// Removes Active Class From Other Titles
-		$('.accordion-title').not($(this)).removeClass('active');		
+		$('.accordion-title').not($(this)).removeClass('active');
 	});
-	
-	// Count Time 
+
+	// Count Time
 	function makeTimer() {
 		var endTime = new Date("November 30, 2027 17:00:00 PDT");
 		var endTime = (Date.parse(endTime)) / 1000;
 		var now = new Date();
 		var now = (Date.parse(now) / 1000);
 		var timeLeft = endTime - now;
-		var days = Math.floor(timeLeft / 86400); 
+		var days = Math.floor(timeLeft / 86400);
 		var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
 		var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600 )) / 60);
 		var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
@@ -240,7 +240,7 @@
 	// Tabs
 	$('.tab ul.tabs').addClass('active').find('> li:eq(0)').addClass('current');
 	$('.tab ul.tabs li a').on('click', function (g) {
-		var tab = $(this).closest('.tab'), 
+		var tab = $(this).closest('.tab'),
 		index = $(this).closest('li').index();
 		tab.find('ul.tabs > li').removeClass('current');
 		$(this).closest('li').addClass('current');
@@ -249,7 +249,7 @@
 		g.preventDefault();
 	});
 
-	// Odometer 
+	// Odometer
 	$('.odometer').appear(function(e) {
 		var odo = $(".odometer");
 		odo.each(function() {
@@ -258,7 +258,7 @@
 		});
 	});
 
-	// Popup Video JS 
+	// Popup Video JS
 	$('.popup-youtube, .popup-vimeo').magnificPopup({
 		disableOn: 300,
 		type: 'iframe',
@@ -273,7 +273,7 @@
 		jQuery(this).find('.progress-content').animate({
 		width:jQuery(this).attr('data-percentage')
 		},2000);
-		
+
 		jQuery(this).find('.progress-number-mark').animate(
 		{left:jQuery(this).attr('data-percentage')},
 		{
@@ -282,20 +282,20 @@
 			var data = Math.round(now);
 			jQuery(this).find('.percent').html(data + '%');
 			}
-		});  
+		});
 	});
 
 	// Subscribe form
-	$(".newsletter-form").validator().on("submit", function (event) {
-		if (event.isDefaultPrevented()) {
-		// handle the invalid form...
-			formErrorSub();
-			submitMSGSub(false, "Please enter your email correctly.");
-		} else {
-			// everything looks good!
-			event.preventDefault();
-		}
-	});
+	// $(".newsletter-form").validator().on("submit", function (event) {
+	// 	if (event.isDefaultPrevented()) {
+	// 	// handle the invalid form...
+	// 		formErrorSub();
+	// 		submitMSGSub(false, "Please enter your email correctly.");
+	// 	} else {
+	// 		// everything looks good!
+	// 		event.preventDefault();
+	// 	}
+	// });
 	function callbackFunction (resp) {
 		if (resp.result === "success") {
 			formSuccessSub();
@@ -325,14 +325,14 @@
 		}
 		$("#validator-newsletter").removeClass().addClass(msgClasses).text(msg);
 	}
-	
+
 	// AJAX MailChimp
 	$(".newsletter-form").ajaxChimp({
 		url: "https://envytheme.us20.list-manage.com/subscribe/post?u=60e1ffe2e8a68ce1204cd39a5&amp;id=42d6d188d9", // Your url MailChimp
 		callback: callbackFunction
 	});
-	
-	//Search Box 
+
+	//Search Box
 	$('a[href=".search"]').on("click", function(event) {
 		event.preventDefault();
 		$(".search").addClass("open");
@@ -351,7 +351,7 @@
 		event.preventDefault();
 		return false;
 	});
-	
+
 	// Buy Now Btn
 	// $('body').append("<a href='https://1.envato.market/kKNXM' target='_blank' class='buy-now-btn'><img src='assets/img/envato.png' alt='envato'/>Buy Now</a>");
 

@@ -1,4 +1,4 @@
-<script data-cfasync="false" src="{{ asset('frontend/assets/js/email-decode.min.js')}}"></script>
+{{-- <script data-cfasync="false" src="{{ asset('frontend/assets/js/email-decode.min.js')}}"></script> --}}
 <script src="{{ asset('frontend/assets/js/jquery.min.js')}}"></script>
 
 

@@ -21,7 +21,9 @@ class TrackAndTraceController extends Controller
         if ($quote) {
             return response()->json([
                 'success' => true,
-                'tracking_number' => $quote->tracking_number
+                'tracking_number' => $quote->tracking_number,
+                'name' => $quote->name,
+                'date_of_shipment' => $quote->created_at->format('Y-m-d')
             ]);
         } else {
             return response()->json([
