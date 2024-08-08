@@ -909,21 +909,17 @@
                     .then(data => {
                         const modalText = document.querySelector('.request-modal-text');
                         if (data.success) {
+
+                            // Format the total cost with a Naira sign and commas
+                            const formattedTotalCost = `₦${parseFloat(data.total_cost).toLocaleString()}`;
+
                             modalText.innerHTML = `
-                                <p>Thank you for requesting a quote, Request submitted successfully!</p>
-                                <p>Name: ${data.name}</p>
-                                <p>Email: ${data.email}</p>
-                                <p>Tracking Number: ${data.tracking_number}</p>
-                                <p>Total Cost: ${data.total_cost}</p>
-                                <p>Phone: ${data.phone}</p>
-                                <p>Vehicle Type: ${data.vehicle_type}</p>
-                                <p>Departure Time: ${data.departure_time}</p>
-                                <p>Type of Goods: ${data.type_of_goods}</p>
-                                <p>Weight of Shipment: ${data.weight_of_shipment}</p>
-                                <p>Delivery Type: ${data.delivery_type}</p>
-                                <p>Date of Shipment: ${data.date_of_shipment}</p>
-                                <p>Route Type: ${data.route_type}</p>
-                                <p>State Route: ${data.stateroute}</p>
+                            <p><strong>Thank you for requesting a quote!</strong> Your request has been submitted successfully.</p>
+                            <p><strong>Name:</strong> <span style="color: #2c3e50;">${data.name}</span></p>
+                            <p><strong>Phone Number:</strong> <span style="color: #2c3e50;">${data.phone}</span></p>
+                            <p><strong>Tracking Number:</strong> <span style="color: #27ae60;">${data.tracking_number}</span></p>
+                            <p><strong>Total Cost:</strong> <span style="color: #e74c3c;">${formattedTotalCost}</span></p>
+                            <p>Please check your email for the full details of your request receipt. You can print the receipt and bring it with you when making a physical payment.</p>
                             `;
                         } else {
                             modalText.innerHTML = `<p>There was an error submitting your request. Please try again.</p>`;
@@ -958,10 +954,14 @@
                     .then(data => {
                         const modalText = document.querySelector('.track-modal-text');
                         if (data.success) {
+
+                            // Format the total cost with a Naira sign and commas
+                            const formattedTotalCost = `₦${parseFloat(data.total_cost).toLocaleString()}`;
+
                             modalText.innerHTML = `
-                                <p>Tracking Number: ${data.tracking_number}</p>
-                                <p>Name: ${data.name}</p>
-                                <p>Date of Shipment: ${data.date_of_shipment}</p>
+                                <p><strong>Name:</strong> <span style="color: #2c3e50;">${data.name}</span></p>
+                                <p><strong>Tracking Number:</strong> <span style="color: #27ae60;">${data.tracking_number}</span></p>
+                                <p><strong>Date of Shipment:</strong> ${data.date_of_shipment}</p>
                             `;
                         } else {
                             modalText.innerHTML = `<p>${data.message}</p>`;
@@ -978,103 +978,5 @@
             }
         });
         </script>
-
-        <!-- JS handling request-store form submission and modal -->
-        {{-- <script>
-           document.addEventListener('DOMContentLoaded', function () {
-                // Handle request-quote form submission
-                const requestForm = document.getElementById('requestForm');
-                if (requestForm) {
-                    requestForm.addEventListener('submit', function (e) {
-                        e.preventDefault();
-
-                    const formData = new FormData(this);
-
-                    fetch('{{ route("quote.store") }}', {
-                        method: 'POST',
-                        body: formData,
-                        headers: {
-                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                        }
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        const modalText = document.querySelector('.request-modal-text');
-                        if (data.success) {
-
-                            modalText.innerHTML = `
-                                <p>Thank you for requesting a quote, Request submitted successfully!</p>
-                                <p><strong>Name:</strong> ${data.data.name}</p>
-                                <p><strong>Email:</strong> ${data.data.email}</p>
-                                <p><strong>Tracking Number:</strong> ${data.data.tracking_number}</p>
-                                <p><strong>Total Cost:</strong> ${data.data.total_cost}</p>
-                                <p><strong>Phone:</strong> ${data.data.Phone}</p>
-                                <p><strong>Vehicle Type:</strong> ${data.data.Vehicle Type}</p>
-                                <p><strong>Departure Time:</strong> ${data.data.departure_time}</p>
-                                <p><strong>Type of Goods:</strong> ${data.data.type_of_goods}</p>
-                                <p><strong>Weight of Shipment:</strong> ${data.data.weight_of_shipment}</p>
-                                <p><strong>Delivery Type:</strong> ${data.data.delivery_type}</p>
-                                <p><strong>Date of Shipment:</strong> ${data.data.date_of_shipment}</p>
-                                <p><strong>Route Type:</strong> ${data.data.route_type}</p>
-                                <p><strong>State Route:</strong> ${data.data.stateroute}</p>
-                            `;
-                        } else {
-                            modalText.innerHTML = `<p>There was an error submitting your request. Please try again.</p>`;
-                        }
-
-                        $('#requestModal').modal('show');
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        document.querySelector('.request-modal-text').innerText = 'There was an error submitting your request. Please try again.';
-                        $('#requestModal').modal('show');
-                        });
-                    });
-                };
-            });
-        </script> --}}
-
-        <!-- JS handling track-store form submission and modal -->
-        {{-- <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                // Handle track-store form submission
-                const trackForm = document.getElementById('trackForm');
-                if (trackForm) {
-                    trackForm.addEventListener('submit', function (e) {
-                        e.preventDefault();
-
-                        const formData = new FormData(this);
-
-                        fetch('{{ route("track.store") }}', {
-                            method: 'POST',
-                            body: formData,
-                            headers: {
-                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                            }
-                        })
-                        .then(response => response.json())
-                        .then(data => {
-                            const modalText = document.querySelector('.track-modal-text');
-                            if (data.success) {
-                                modalText.innerHTML = `
-                                    <p>Tracking Number: ${data.tracking_number}</p>
-                                    <p>Name: ${data.name}</p>
-                                    <p>Date of Shipment: ${data.date_of_shipment}</p>
-                                `;
-                            } else {
-                                modalText.innerHTML = `<p>${data.message}</p>`;
-                            }
-
-                            $('#trackModal').modal('show');
-                        })
-                        .catch(error => {
-                            console.error('Error:', error);
-                            document.querySelector('.track-modal-text').innerText = 'There was an error checking your tracking information. Please try again.';
-                            $('#trackModal').modal('show');
-                        });
-                    });
-                }
-            });
-        </script> --}}
     </body>
 </html>
