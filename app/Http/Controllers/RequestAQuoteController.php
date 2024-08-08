@@ -7,13 +7,11 @@ use App\Models\RequestAQuote;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\AdminQuoteRequest;
 use App\Mail\UserQuoteRequest;
-use Illuminate\Validation\ValidationException;
 
 class RequestAQuoteController extends Controller
 {
     public function store(Request $request)
     {
-        try {
             $request->validate([
                 'name' => 'required',
                 'email' => 'required|email',
@@ -56,15 +54,29 @@ class RequestAQuoteController extends Controller
             // Send email to user
             // Mail::to($request->email)->send(new UserQuoteRequest($requestQuote));
 
-            return response()->json(['success' => true, 'data' => $requestQuote], 200);
-        } catch (ValidationException $e) {
-            return response()->json(['success' => false, 'errors' => $e->errors()], 422);
-        } catch (\Exception $e) {
-            return response()->json(['success' => false, 'message' => $e->getMessage()], 500);
-        }
-
-
-
+            if ($requestQuote) {
+                return response()->json([
+                    'success' => true,
+                    'name' => $requestQuote->name,
+                    'email' => $requestQuote->email,
+                    'phone' => $requestQuote->phone,
+                    'vehicle_type' => $requestQuote->vehicle_type,
+                    'departure_time' => $requestQuote->departure_time,
+                    'type_of_goods' => $requestQuote->type_of_goods,
+                    'weight_of_shipment' => $requestQuote->weight_of_shipment,
+                    'delivery_type' => $requestQuote->delivery_type,
+                    'tracking_number' => $requestQuote->tracking_number,
+                    'date_of_shipment' => $requestQuote->created_at->format('d M Y'),
+                    'route_type' => $requestQuote->route_type,
+                    'stateroute' => $requestQuote->stateroute,
+                    'total_cost' => $requestQuote->total_cost,
+                ]);
+            } else {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'There was an error submitting your request. Please try again...'
+                ]);
+            }
     }
 
     private function generateTrackingNumber()

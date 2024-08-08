@@ -14,7 +14,6 @@ class RequestAQuote extends Model
         'email',
         'phone',
         'vehicle_type',
-        'city_of_departure',
         'departure_time',
         'type_of_goods',
         'weight_of_shipment',

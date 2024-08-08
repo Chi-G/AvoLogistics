@@ -105,7 +105,7 @@
 							</ul>
 							<div class="tab_content">
 								<div class="tabs_item">
-                                    <form id="request-quote-form" action="{{ route('quote.store') }}" method="POST">
+                                    <form id="requestForm" action="{{ route('quote.store') }}" method="POST">
                                         @csrf
                                         <div class="row">
                                             <!-- Personal Details -->
@@ -265,17 +265,17 @@
                                 </div>
 
                                 <!-- Modal for Request Quote -->
-                                <div class="modal fade" id="standardModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="requestModal" tabindex="-1" role="dialog" aria-labelledby="requestModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Quote Request Response</h5>
+                                                <h5 class="modal-title" id="requestModalLabel">Request Quote Information</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <div class="modal-text"></div>
+                                                <div class="request-modal-text"></div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -887,11 +887,13 @@
             }
         </script>
 
-        <!-- JS handling request-store form submission and modal -->
+        <!-- JS handling request-store and track-quote form submission and modal -->
         <script>
-           document.addEventListener('DOMContentLoaded', function () {
-                const requestQuoteForm = document.getElementById('request-quote-form');
-                requestQuoteForm.addEventListener('submit', function (e) {
+            document.addEventListener('DOMContentLoaded', function () {
+            // Handle request-quote form submission
+            const requestForm = document.getElementById('requestForm');
+            if (requestForm) {
+                requestForm.addEventListener('submit', function (e) {
                     e.preventDefault();
 
                     const formData = new FormData(this);
@@ -905,47 +907,135 @@
                     })
                     .then(response => response.json())
                     .then(data => {
-                        const modalText = document.querySelector('.modal-text');
+                        const modalText = document.querySelector('.request-modal-text');
                         if (data.success) {
-                            const requestData = data.data;
-
                             modalText.innerHTML = `
-                                <p>Thank you for requesting a quote. We will get back to you shortly.</p>
-                                <p><strong>Name:</strong> ${requestData.name}</p>
-                                <p><strong>Email:</strong> ${requestData.email}</p>
-                                <p><strong>Phone:</strong> ${requestData.phone}</p>
-                                <p><strong>Vehicle Type:</strong> ${requestData.vehicle_type}</p>
-                                <p><strong>Departure Time:</strong> ${requestData.departure_time}</p>
-                                <p><strong>Type of Goods:</strong> ${requestData.type_of_goods}</p>
-                                <p><strong>Weight of Shipment:</strong> ${requestData.weight_of_shipment} kg</p>
-                                <p><strong>Delivery Type:</strong> ${requestData.delivery_type}</p>
-                                <p><strong>Date of Shipment:</strong> ${requestData.date_of_shipment}</p>
-                                <p><strong>Route Type:</strong> ${requestData.route_type}</p>
-                                <p><strong>State Route:</strong> ${requestData.stateroute}</p>
-                                <p><strong>Total Cost:</strong> $${requestData.total_cost}</p>
-                                <p><strong>Tracking Number:</strong> ${requestData.tracking_number}</p>
+                                <p>Thank you for requesting a quote, Request submitted successfully!</p>
+                                <p>Name: ${data.name}</p>
+                                <p>Email: ${data.email}</p>
+                                <p>Tracking Number: ${data.tracking_number}</p>
+                                <p>Total Cost: ${data.total_cost}</p>
+                                <p>Phone: ${data.phone}</p>
+                                <p>Vehicle Type: ${data.vehicle_type}</p>
+                                <p>Departure Time: ${data.departure_time}</p>
+                                <p>Type of Goods: ${data.type_of_goods}</p>
+                                <p>Weight of Shipment: ${data.weight_of_shipment}</p>
+                                <p>Delivery Type: ${data.delivery_type}</p>
+                                <p>Date of Shipment: ${data.date_of_shipment}</p>
+                                <p>Route Type: ${data.route_type}</p>
+                                <p>State Route: ${data.stateroute}</p>
                             `;
                         } else {
-                            let errorMessage = 'There was an error submitting your request. Please try again.';
-                            if (data.errors) {
-                                errorMessage = Object.values(data.errors).map(errorArray => errorArray.join(', ')).join('<br>');
-                            }
-                            modalText.innerHTML = errorMessage;
+                            modalText.innerHTML = `<p>There was an error submitting your request. Please try again.</p>`;
                         }
 
-                        $('#standardModal').modal('show');
+                        $('#requestModal').modal('show');
                     })
                     .catch(error => {
                         console.error('Error:', error);
-                        document.querySelector('.modal-text').innerText = 'There was an error submitting your request. Please try again.';
-                        $('#standardModal').modal('show');
+                        document.querySelector('.request-modal-text').innerText = 'There was an error submitting your request. Please try again.';
+                        $('#requestModal').modal('show');
                     });
                 });
-            });
+            }
+
+            // Handle track-store form submission
+            const trackForm = document.getElementById('trackForm');
+            if (trackForm) {
+                trackForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    const formData = new FormData(this);
+
+                    fetch('{{ route("track.store") }}', {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        const modalText = document.querySelector('.track-modal-text');
+                        if (data.success) {
+                            modalText.innerHTML = `
+                                <p>Tracking Number: ${data.tracking_number}</p>
+                                <p>Name: ${data.name}</p>
+                                <p>Date of Shipment: ${data.date_of_shipment}</p>
+                            `;
+                        } else {
+                            modalText.innerHTML = `<p>${data.message}</p>`;
+                        }
+
+                        $('#trackModal').modal('show');
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        document.querySelector('.track-modal-text').innerText = 'There was an error checking your tracking information. Please try again.';
+                        $('#trackModal').modal('show');
+                    });
+                });
+            }
+        });
         </script>
 
+        <!-- JS handling request-store form submission and modal -->
+        {{-- <script>
+           document.addEventListener('DOMContentLoaded', function () {
+                // Handle request-quote form submission
+                const requestForm = document.getElementById('requestForm');
+                if (requestForm) {
+                    requestForm.addEventListener('submit', function (e) {
+                        e.preventDefault();
+
+                    const formData = new FormData(this);
+
+                    fetch('{{ route("quote.store") }}', {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        const modalText = document.querySelector('.request-modal-text');
+                        if (data.success) {
+
+                            modalText.innerHTML = `
+                                <p>Thank you for requesting a quote, Request submitted successfully!</p>
+                                <p><strong>Name:</strong> ${data.data.name}</p>
+                                <p><strong>Email:</strong> ${data.data.email}</p>
+                                <p><strong>Tracking Number:</strong> ${data.data.tracking_number}</p>
+                                <p><strong>Total Cost:</strong> ${data.data.total_cost}</p>
+                                <p><strong>Phone:</strong> ${data.data.Phone}</p>
+                                <p><strong>Vehicle Type:</strong> ${data.data.Vehicle Type}</p>
+                                <p><strong>Departure Time:</strong> ${data.data.departure_time}</p>
+                                <p><strong>Type of Goods:</strong> ${data.data.type_of_goods}</p>
+                                <p><strong>Weight of Shipment:</strong> ${data.data.weight_of_shipment}</p>
+                                <p><strong>Delivery Type:</strong> ${data.data.delivery_type}</p>
+                                <p><strong>Date of Shipment:</strong> ${data.data.date_of_shipment}</p>
+                                <p><strong>Route Type:</strong> ${data.data.route_type}</p>
+                                <p><strong>State Route:</strong> ${data.data.stateroute}</p>
+                            `;
+                        } else {
+                            modalText.innerHTML = `<p>There was an error submitting your request. Please try again.</p>`;
+                        }
+
+                        $('#requestModal').modal('show');
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        document.querySelector('.request-modal-text').innerText = 'There was an error submitting your request. Please try again.';
+                        $('#requestModal').modal('show');
+                        });
+                    });
+                };
+            });
+        </script> --}}
+
         <!-- JS handling track-store form submission and modal -->
-        <script>
+        {{-- <script>
             document.addEventListener('DOMContentLoaded', function () {
                 // Handle track-store form submission
                 const trackForm = document.getElementById('trackForm');
@@ -985,6 +1075,6 @@
                     });
                 }
             });
-        </script>
+        </script> --}}
     </body>
 </html>
