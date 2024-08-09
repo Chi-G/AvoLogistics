@@ -93,7 +93,7 @@ class RequestAQuoteController extends Controller
     {
         $mileageData = [
             'Abia' => [
-                'PH' => 60,
+                'Porthacourt' => 60,
                 'Calabar' => 150,
                 'Uyo' => 100,
                 'Imo' => 50,
