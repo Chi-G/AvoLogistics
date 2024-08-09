@@ -16,26 +16,35 @@
         <!-- Bootstrap Min CSS -->
         @include('includes.css')
 
-        <!--  CUSTOM MODAL FILE  -->
-        {{-- <link href="{{asset('backend/assets/css/components/custom-modal.css')}}" rel="stylesheet" type="text/css" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-        --}}
-
-        <script defer>
-            const myModal = new bootstrap.Modal('#trackModal');
-
-            window.addEventListener('DOMContentLoaded', () => {
-            myModal.show();
-            });
-        </script>
         <style>
+            /* Ensure modal backdrop and content are on top */
             .modal {
-                z-index: 1060; /* Ensure it's above the backdrop */
+                z-index: 1050;
+            }
+            .modal-dialog {
+                position: absolute;
+                top: 10%;
+                left: 38%;
+                transform: translate(-50%, -50%);
+                z-index: 1060;
+            }
+
+            /* Transition effects for modal show/fade */
+            .modal.fade .modal-dialog {
+                transition: transform .3s ease-out;
+                transform: translate(0, -50px);
+            }
+            .modal.show .modal-dialog {
+                transform: perspective(10px);
+            }
+
+            /* Button transition */
+            .modal-footer button {
+                transition: opacity .3s ease;
             }
 
             .modal-backdrop {
-                z-index: 1050; /* Should be lower than the modal's z-index */
+                background-color: #515365;
             }
         </style>
 
@@ -249,7 +258,7 @@
                                                 </div>
 
                                                 <!-- Hidden Field to Hold the Selected State Route -->
-                                                <input type="hidden" name="stateroute" id="staterouteInput">
+                                                <input type="hidden" id="staterouteInput" name="stateroute">
 
                                                 <!-- Delivery Type -->
                                                 <div class="row mb-30">
@@ -285,7 +294,7 @@
                                 </div>
 
                                 <!-- Modal for Request Quote -->
-                                <div class="modal fade" id="requestModal" tabindex="-1" role="dialog" aria-labelledby="requestModalLabel" aria-hidden="true">
+                                <div class="modal" id="requestModal" tabindex="-1" role="dialog" aria-labelledby="requestModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">

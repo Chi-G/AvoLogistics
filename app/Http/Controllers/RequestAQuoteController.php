@@ -26,10 +26,15 @@ class RequestAQuoteController extends Controller
                 'stateroute' => 'required',
             ]);
 
-            $amount_per_kg = 900;
-            $mileage_rate = 0.50;
-            $mileage = $this->calculateMileage( $request->stateroute);
+            // Extract origin and destination from stateroute
+            list($origin, $destination) = explode('_to_', $request->stateroute);
+            $origin = str_replace('_', ' ', $origin);
+            $destination = str_replace('_', ' ', $destination);
 
+            // Calculate mileage
+            $mileage = $this->calculateMileage($origin, $destination);
+            $amount_per_kg = 900;
+            $mileage_rate = 200;
             $total_cost = ($request->weight_of_shipment * $amount_per_kg) + ($mileage * $mileage_rate);
 
             $requestQuote = RequestAQuote::create([
@@ -84,7 +89,7 @@ class RequestAQuoteController extends Controller
         return 'TRACK' . strtoupper(uniqid());
     }
 
-    private function calculateMileage($stateroute)
+    private function calculateMileage($origin, $destination)
     {
         $mileageData = [
             'Abia' => [
@@ -111,9 +116,10 @@ class RequestAQuoteController extends Controller
             ],
         ];
 
-        if (isset($mileageData[$stateroute])) {
-            return $mileageData[$stateroute];
+        if (isset($mileageData[$origin][$destination])) {
+            return $mileageData[$origin][$destination];
         } else {
+            // Default mileage if no direct route is found
             return 100;
         }
     }
