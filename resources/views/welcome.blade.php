@@ -17,7 +17,27 @@
         @include('includes.css')
 
         <!--  CUSTOM MODAL FILE  -->
-        <link href="{{asset('backend/assets/css/components/custom-modal.css')}}" rel="stylesheet" type="text/css" />
+        {{-- <link href="{{asset('backend/assets/css/components/custom-modal.css')}}" rel="stylesheet" type="text/css" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        --}}
+
+        <script defer>
+            const myModal = new bootstrap.Modal('#trackModal');
+
+            window.addEventListener('DOMContentLoaded', () => {
+            myModal.show();
+            });
+        </script>
+        <style>
+            .modal {
+                z-index: 1060; /* Ensure it's above the backdrop */
+            }
+
+            .modal-backdrop {
+                z-index: 1050; /* Should be lower than the modal's z-index */
+            }
+        </style>
 
         <!-- Title -->
         <title>AVO Logistics - Easing the burden</title>
@@ -291,9 +311,9 @@
                                             <div class="col-lg-8">
                                                 <div class="row">
                                                     <div class="col-12">
-                                                        <h3>Shipment Type</h3>
+                                                        <h3>Delivery Type</h3>
                                                         <div class="form-group">
-                                                            <select name="shipment_type" class="form-control" required>
+                                                            <select name="delivery_type" class="form-control" required>
                                                                 <option value="">Select Shipment/Property type</option>
                                                                 <option value="1">Express Delivery</option>
                                                                 <option value="2">Road Freight</option>
@@ -305,24 +325,8 @@
                                                     </div>
                                                     <div class="col-12">
                                                         <div class="form-group">
-                                                            <textarea name="tracking_numbers" class="form-control" placeholder="Kindly input your tracking numbers." required></textarea>
+                                                            <input name="tracking_numbers" class="form-control" placeholder="Kindly input your tracking numbers." required></input>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-3 col-sm-6 col-md-3">
-                                                        <label class="single-check">
-                                                            Express Delivery
-                                                            <input type="radio" value="Express Delivery" checked="checked" name="delivery_type" required>
-                                                            <span class="checkmark"></span>
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-lg-3 col-sm-6 col-md-3">
-                                                        <label class="single-check">
-                                                            Road Freight
-                                                            <input type="radio" value="Road Freight" name="delivery_type" required>
-                                                            <span class="checkmark"></span>
-                                                        </label>
                                                     </div>
                                                 </div>
                                                 &nbsp;

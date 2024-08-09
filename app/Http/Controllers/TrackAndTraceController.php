@@ -10,7 +10,7 @@ class TrackAndTraceController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'shipment_type' => 'required|string|max:255',
+            // 'shipment_type' => 'required|string|max:255',
             'tracking_numbers' => 'required|string',
             'delivery_type' => 'required|string|max:255',
         ]);
