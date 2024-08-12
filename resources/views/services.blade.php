@@ -71,7 +71,7 @@
 		<section class="what-offer-area-two pt-100 pb-70">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-3 col-sm-6 p-0">
+					<div class="col-lg-4 col-sm-6 p-0">
 						<div class="single-offer">
 							<i class="icon flaticon-server"></i>
 							<h3>Warehousing</h3>
@@ -81,7 +81,7 @@
 							</a>
 						</div>
 					</div>
-					<div class="col-lg-3 col-sm-6 p-0">
+					<div class="col-lg-4 col-sm-6 p-0">
 						<div class="single-offer">
 							<i class="icon flaticon-air-freight"></i>
 							<h3>Air Freight</h3>
@@ -91,7 +91,7 @@
 							</a>
 						</div>
 					</div>
-					<div class="col-lg-3 col-sm-6 p-0">
+					{{-- <div class="col-lg-3 col-sm-6 p-0">
 						<div class="single-offer">
 							<i class="icon flaticon-plastic-bottle"></i>
 							<h3>Ocean Freight</h3>
@@ -100,8 +100,8 @@
 								<i class="flaticon-right-1"></i>
 							</a>
 						</div>
-					</div>
-					<div class="col-lg-3 col-sm-6 p-0">
+					</div> --}}
+					<div class="col-lg-4 col-sm-6 p-0">
 						<div class="single-offer">
 							<i class="icon flaticon-street"></i>
 							<h3>Road Freight</h3>
@@ -247,7 +247,7 @@
 					<div class="col-lg-3 col-sm-6">
 						<div class="single-fun-fact">
 							<h2>
-								<span class="odometer" data-count="200">00</span>
+								<span class="odometer" data-count="20">00</span>
 								<span class="sign-icon">+</span>
 							</h2>
 							<p>Successful Projects</p>
@@ -265,7 +265,7 @@
 					<div class="col-lg-3 col-sm-6">
 						<div class="single-fun-fact">
 							<h2>
-								<span class="odometer" data-count="50">00</span>
+								<span class="odometer" data-count="5">00</span>
 								<span class="sign-icon">+</span>
 							</h2>
 							<p>Years of Experience</p>
@@ -274,7 +274,7 @@
 					<div class="col-lg-3 col-sm-6">
 						<div class="single-fun-fact">
 							<h2>
-								<span class="odometer" data-count="100">00</span>
+								<span class="odometer" data-count="30">00</span>
 								<span class="sign-icon">+</span>
 							</h2>
 							<p>Team Members</p>
