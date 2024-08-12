@@ -13,7 +13,6 @@ class NewsController extends Controller
         return view('blogs', compact('blogs'));
     }
 
-    // public function show(News $blog)
     public function show(News $blog)
     {
         // Get the previous blog post
