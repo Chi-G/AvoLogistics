@@ -399,7 +399,7 @@
 							<h2>Leading Logistics and Transport Solutions Provider</h2>
 							<p>AVO Logistics is dedicated to providing reliable and express logistics and transport solutions. Our commitment to excellence ensures that we do not waste your valuable time. Our services are designed to meet your unique needs and help you achieve your business goals efficiently and effectively.</p>
 							<p>We are equipped with a team of highly skilled professionals who are passionate about delivering exceptional services. From our humble beginnings, we have grown into a trusted partner for businesses across various industries, offering customized solutions that ensure timely and safe delivery of your goods.</p>
-							<a class="default-btn" href="#">
+							<a class="default-btn" href="{{ route('aboutus') }}">
 								Learn More
 							</a>
 						</div>
@@ -418,7 +418,7 @@
 					<h2>Comprehensive Logistics and Transport Solutions</h2>
 				</div>
 				<div class="row">
-					<div class="col-lg-3 col-sm-6 p-0">
+					<div class="col-lg-4 col-sm-6 p-0">
 						<div class="single-offer">
 							<i class="icon flaticon-server"></i>
 							<h3>Warehousing</h3>
@@ -428,7 +428,7 @@
 							</a>
 						</div>
 					</div>
-					<div class="col-lg-3 col-sm-6 p-0">
+					{{-- <div class="col-lg-3 col-sm-6 p-0">
 						<div class="single-offer">
 							<i class="icon flaticon-air-freight"></i>
 							<h3>Air Freight</h3>
@@ -437,8 +437,8 @@
 								<i class="flaticon-right-1"></i>
 							</a>
 						</div>
-					</div>
-					<div class="col-lg-3 col-sm-6 p-0">
+					</div> --}}
+					<div class="col-lg-4 col-sm-6 p-0">
 						<div class="single-offer">
 							<i class="icon flaticon-plastic-bottle"></i>
 							<h3>Ocean Freight</h3>
@@ -448,7 +448,7 @@
 							</a>
 						</div>
 					</div>
-					<div class="col-lg-3 col-sm-6 p-0">
+					<div class="col-lg-4 col-sm-6 p-0">
 						<div class="single-offer">
 							<i class="icon flaticon-street"></i>
 							<h3>Road Freight</h3>
@@ -501,7 +501,7 @@
 										<p>Our mission is to provide reliable and efficient logistics solutions that exceed customer expectations. We strive to innovate and improve our services to ensure the highest level of satisfaction.</p>
 
 										<p>We are committed to delivering value through our comprehensive range of services, including warehousing, air freight, ocean freight, and road freight, tailored to meet the unique needs of each client.</p>
-										<a class="default-btn" href="#">
+										<a class="default-btn" href="{{ route('aboutus') }}">
 											Learn About
 										</a>
 									</div>
@@ -510,7 +510,7 @@
 										<p>Our vision is to be the leading logistics company, known for our excellence in service, operational efficiency, and innovative solutions. We aim to create a seamless and integrated logistics experience for our customers worldwide.</p>
 
 										<p>We envision a future where logistics is simplified, and businesses can rely on us for all their transportation needs, allowing them to focus on their core activities and growth.</p>
-										<a class="default-btn" href="#">
+										<a class="default-btn" href="{{ route('aboutus') }}">
 											Learn About
 										</a>
 									</div>
@@ -519,7 +519,7 @@
 										<p>Our core values guide us in every aspect of our business. We prioritize customer satisfaction, operational integrity, and continuous improvement. Our team is dedicated to providing exceptional service and building long-lasting relationships with our clients.</p>
 
 										<p>We value transparency, accountability, and teamwork. These principles ensure that we deliver on our promises and maintain the trust and loyalty of our customers.</p>
-										<a class="default-btn" href="#">
+										<a class="default-btn" href="{{ route('aboutus') }}">
 											Learn About
 										</a>
 									</div>
@@ -619,8 +619,8 @@
 						<div class="single-service">
 							<div class="service-content-wrap">
 								<i class="icon flaticon-plastic-bottle"></i>
-								<h3>Ocean Freight</h3>
-								<p>Our ocean freight services are designed to handle all your shipping needs with utmost precision and care.</p>
+								<h3>Road Freight</h3>
+								<p>Our road freight services are designed to handle all your shipping needs with utmost precision and care.</p>
 							</div>
 							<div class="service-heading">
 								<a class="circle-read-more" href="service-details.html">
@@ -648,7 +648,7 @@
 							<img src="{{ asset('frontend/assets/img/testimonials/1.jpg')}}" alt="Image">
 							<div class="testimonials-content">
 								<p>Avo Logistics provided us with an exceptional service that streamlined our supply chain processes. Their professionalism and attention to detail ensured our goods were delivered on time, every time.</p>
-								<h3>Juhon Dew</h3>
+								<h3>ABDULAZIZ SAGIRU</h3>
 								<ul>
 									<li>
 										<i class='bx bxs-star'></i>
@@ -671,8 +671,8 @@
 						<div class="testimonials-wrap">
 							<img src="{{ asset('frontend/assets/img/testimonials/2.jpg')}}" alt="Image">
 							<div class="testimonials-content">
-								<p>The efficiency and reliability of Avo Logistics' air freight services have significantly boosted our business operations. Their team goes above and beyond to meet our logistics needs.</p>
-								<h3>Moris Noman</h3>
+								<p>The efficiency and reliability of Avo Logistics' road freight services have significantly boosted our business operations. Their team goes above and beyond to meet our logistics needs.</p>
+								<h3>MAIMUNA LAWAL</h3>
 								<ul>
 									<li>
 										<i class='bx bxs-star'></i>
@@ -696,7 +696,7 @@
 							<img src="{{ asset('frontend/assets/img/testimonials/3.jpg')}}" alt="Image">
 							<div class="testimonials-content">
 								<p>Our experience with Avo Logistics has been nothing short of excellent. Their comprehensive warehousing solutions have provided us with the flexibility and security we need to grow our business.</p>
-								<h3>Jon Smit</h3>
+								<h3>GADDAFI IBRAHIM ADAM</h3>
 								<ul>
 									<li>
 										<i class='bx bxs-star'></i>
