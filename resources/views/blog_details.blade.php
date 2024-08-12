@@ -5,9 +5,9 @@
         <meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <!-- Bootstrap Min CSS --> 
+        <!-- Bootstrap Min CSS -->
         @include('includes.css')
-		
+
         <!-- Title -->
         <title>AVO Logistics - Blog Details</title>
     </head>
@@ -55,7 +55,7 @@
 							<ul>
 								<li>
 									<a href="{{ url('/') }}">
-										Home 
+										Home
 									</a>
 								</li>
 								<li>News Details</li>
@@ -66,7 +66,7 @@
 			</div>
 		</div>
 		<!-- End Page Title Area -->
-		
+
 		<!-- Start Inner Blog Details Area -->
         <section class="blog-details-area ptb-100">
 			<div class="container">
@@ -94,11 +94,11 @@
 								<blockquote class="flaticon-quote">
 									<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus aliquid praesentium eveniet illum asperiores, quidem, ipsum voluptatum numquam ducimus nisi exercitationem dolorum facilis.</p>
 								</blockquote>
-								
+
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in  sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat.</p>
 							</div>
 
-							<div class="post-navigation">
+							{{-- <div class="post-navigation">
 								<div class="navigation-links">
 									<div class="nav-previous">
 										<a href="news-details.html"><i class='bx bx-left-arrow-alt'></i> Prev Post</a>
@@ -108,7 +108,7 @@
 										<a href="news-details.html">Next Post <i class='bx bx-right-arrow-alt'></i></a>
 									</div>
 								</div>
-							</div>
+							</div> --}}
 						</div>
 					</div>
 
@@ -126,25 +126,25 @@
 									</form>
 								</div>
 							</div>
-							
+
 							<section class="widget widget_categories">
 								<h3 class="widget-title">Categories</h3>
 								<div class="post-wrap">
 									<ul>
 										<li>
-											<a href="news-details.html">Delivery <span>(10)</span></a>
+											<a href="#">Delivery <span>(10)</span></a>
 										</li>
 										<li>
-											<a href="news-details.html">Engineering <span>(20)</span></a>
+											<a href="#">Engineering <span>(20)</span></a>
 										</li>
 										<li>
-											<a href="news-details.html">Transport <span>(10)</span></a>
+											<a href="#">Transport <span>(10)</span></a>
 										</li>
 										<li>
-											<a href="news-details.html">Air Flight <span>(12)</span></a>
+											<a href="#">Air Flight <span>(12)</span></a>
 										</li>
 										<li>
-											<a href="news-details.html">Road Flight <span>(16)</span></a>
+											<a href="#">Road Flight <span>(16)</span></a>
 										</li>
 									</ul>
 								</div>
@@ -154,16 +154,16 @@
 								<h3 class="widget-title">Tags</h3>
 								<div class="post-wrap">
 									<div class="tagcloud">
-										<a href="news-details.html">Transport (3)</a>
-										<a href="news-details.html">Delivery (3)</a>
-										<a href="news-details.html">Engineering (2)</a>
-										<a href="news-details.html">Transport (2)</a>
-										<a href="news-details.html">Air Flight (1)</a>
-										<a href="news-details.html">Road Flight (1)</a>
-										<a href="news-details.html">Prevoz (1)</a>
+										<a href="#">Transport (3)</a>
+										<a href="#">Delivery (3)</a>
+										<a href="#">Engineering (2)</a>
+										<a href="#">Transport (2)</a>
+										<a href="#">Air Flight (1)</a>
+										<a href="#">Road Flight (1)</a>
+										<a href="#">Prevoz (1)</a>
 									</div>
 								</div>
-							</section>       
+							</section>
 						</aside>
 					</div>
 				</div>
@@ -172,7 +172,7 @@
 		<!-- End Inner Blog Details Area -->
 
 		<!-- Start Subscribe Area -->
-		<div class="subscribe-area ptb-100">
+		{{-- <div class="subscribe-area ptb-100">
 			<div class="container">
 				<div class="section-title white-title">
 					<h2>Subscribe for the latest newsletter</h2>
@@ -189,7 +189,7 @@
 					</form>
 				</div>
 			</div>
-		</div>
+		</div> --}}
 		<!-- End Subscribe Area -->
 
 		<!-- Start Footer Bottom Area -->
@@ -201,9 +201,9 @@
 			<i class='bx bx-chevrons-up bx-fade-up'></i>
 			<i class='bx bx-chevrons-up bx-fade-up'></i>
 		</div>
-		<!-- End Go Top Area --> 
+		<!-- End Go Top Area -->
 
-        
+
         <!-- Jquery Min JS -->
         @include('includes.script')
     </body>
