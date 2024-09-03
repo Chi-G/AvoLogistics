@@ -28,7 +28,7 @@
                                     <span>support@avologistics.org</span>
                                 </a>
                             </li>
-                            <li class="pl-0">
+                            {{-- <li class="pl-0">
                                 <ul class="flag-wrap">
                                     <li class="flag-item-top">
                                         <a href="javascript:;" class="flag-bar">
@@ -37,7 +37,7 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                 </div>

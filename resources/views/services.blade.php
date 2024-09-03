@@ -68,108 +68,37 @@
 		<!-- End Page Title Area -->
 
 		<!-- Start What We Offer Area -->
-		<section class="what-offer-area-two pt-100 pb-70">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-4 col-sm-6 p-0">
-						<div class="single-offer">
-							<i class="icon flaticon-server"></i>
-							<h3>Warehousing</h3>
-							<p>AVO Logistics offers state-of-the-art warehousing facilities with advanced security and climate control.</p>
-							<a class="circle-read-more" href="service-details.html">
-								<i class="flaticon-right-1"></i>
-							</a>
-						</div>
-					</div>
-					<div class="col-lg-4 col-sm-6 p-0">
-						<div class="single-offer">
-							<i class="icon flaticon-air-freight"></i>
-							<h3>Air Freight</h3>
-							<p>Our air freight services ensure timely and efficient delivery of goods across the globe.</p>
-							<a class="circle-read-more" href="service-details.html">
-								<i class="flaticon-right-1"></i>
-							</a>
-						</div>
-					</div>
-					{{-- <div class="col-lg-3 col-sm-6 p-0">
-						<div class="single-offer">
-							<i class="icon flaticon-plastic-bottle"></i>
-							<h3>Ocean Freight</h3>
-							<p>We provide reliable ocean freight solutions for large and small shipments, ensuring safe transit.</p>
-							<a class="circle-read-more" href="service-details.html">
-								<i class="flaticon-right-1"></i>
-							</a>
-						</div>
-					</div> --}}
-					<div class="col-lg-4 col-sm-6 p-0">
-						<div class="single-offer">
-							<i class="icon flaticon-street"></i>
-							<h3>Road Freight</h3>
-							<p>Our road freight services offer comprehensive logistics solutions for domestic and regional deliveries.</p>
-							<a class="circle-read-more" href="service-details.html">
-								<i class="flaticon-right-1"></i>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+
 		<!-- End What We Offer Area -->
 
 		<!-- start Service Area -->
 		<section class="service-area service-area-two pb-100">
 			<div class="container">
+                <br>
+                <br>
+
 				<div class="section-title">
 					<span>We Offer Services </span>
 					<h2>Prime logistics services for the world’s logistics companies.</h2>
 				</div>
 				<div class="row">
-					<div class="col-lg-4 col-sm-6">
-						<div class="single-service">
-							<div class="service-content-wrap">
-								<i class="icon flaticon-home"></i>
-								<h3>Residential Moves</h3>
-								<p>Our residential moving services ensure a hassle-free experience for relocating homes.</p>
-							</div>
-							<div class="service-heading">
-								<a class="circle-read-more" href="service-details.html">
-									<h3>Residential Moves</h3>
-									<i class="flaticon-right-1"></i>
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-sm-6">
-						<div class="single-service">
-							<div class="service-content-wrap">
-								<i class="icon flaticon-package"></i>
-								<h3>Corporate Relocation</h3>
-								<p>We offer comprehensive corporate relocation services to ensure smooth transitions for businesses.</p>
-							</div>
-							<div class="service-heading">
-								<a class="circle-read-more" href="service-details.html">
-									<h3>Corporate Relocation</h3>
-									<i class="flaticon-right-1"></i>
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-sm-6 offset-sm-3 offset-lg-0">
-						<div class="single-service">
-							<div class="service-content-wrap">
-								<i class="icon flaticon-server"></i>
-								<h3>Warehouse & Storage</h3>
-								<p>Our warehouse and storage services offer secure and efficient storage solutions for various goods.</p>
-							</div>
-							<div class="service-heading">
-								<a class="circle-read-more" href="service-details.html">
-									<h3>Warehouse & Storage</h3>
-									<i class="flaticon-right-1"></i>
-								</a>
-							</div>
-						</div>
-					</div>
-
+                    @foreach ($services as $service)
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="single-service">
+                                <div class="service-content-wrap">
+                                    <i class="icon flaticon-home"></i>
+                                    <h3>{{ $service->service_title1 }}</h3>
+                                    <p>{{ $service->service_desc1 }}</p>
+                                </div>
+                                <div class="service-heading">
+                                    <a class="circle-read-more" href="{{ route('services.show', ['service' => $service->id]) }}">
+                                        <h3>{{ $service->service_title1 }}</h3>
+                                        <i class="flaticon-right-1"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
 				</div>
 			</div>
 		</section>

@@ -35,7 +35,9 @@ use App\Models\User;
 Route::get('/', function () {
     $sliders = Sliders::all();
     $teams = Teams::paginate(6);
-    return view('welcome', compact('sliders', 'teams'));
+    $blogs = News::paginate(3);
+    $services = Services::paginate(3);
+    return view('welcome', compact('sliders', 'teams', 'blogs', 'services'));
 });
 
 // About Us routes

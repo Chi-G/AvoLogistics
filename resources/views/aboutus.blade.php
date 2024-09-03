@@ -206,25 +206,17 @@
 		<section class="counter-area counter-area-two pt-100 pb-70 jarallax"  data-jarallax='{"speed": 0.3}'>
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="col-lg-4 col-md-6 col-sm-6">
 						<div class="single-counter">
 							<i class="flaticon-box"></i>
 							<h2>
-								<span class="odometer" data-count="8845">00</span> <span class="traget">K</span>
+								<span class="odometer" data-count="1845">00</span> <span class="traget">K</span>
 							</h2>
 							<p>Delivered Packages</p>
 						</div>
 					</div>
-					<div class="col-lg-3 col-md-6 col-sm-6">
-						<div class="single-counter">
-							<i class="flaticon-planet-earth"></i>
-							<h2>
-								<span class="odometer" data-count="1507">00</span> <span class="traget">M</span>
-							</h2>
-							<p>Countries Covered</p>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6 col-sm-6">
+
+					<div class="col-lg-4 col-md-6 col-sm-6">
 						<div class="single-counter">
 							<i class="flaticon-support"></i>
 							<h2>
@@ -233,7 +225,7 @@
 							<p>Satisfied Clients</p>
 						</div>
 					</div>
-					<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="col-lg-4 col-md-6 col-sm-6">
 						<div class="single-counter">
 							<i class="flaticon-product-realise"></i>
 							<h2>
@@ -324,20 +316,7 @@
                                     <div class="progress-content"></div>
                                 </div>
                             </div>
-                            <div class="skill-bar" data-percentage="85%">
-                                <h4 class="progress-title-holder clearfix">
-                                    <span class="progress-title">Ocean Freight</span>
-                                    <span class="progress-number-wrapper">
-                                        <span class="progress-number-mark">
-                                            <span class="percent"></span>
-                                            <span class="down-arrow"></span>
-                                        </span>
-                                    </span>
-                                </h4>
-                                <div class="progress-content-outter">
-                                    <div class="progress-content"></div>
-                                </div>
-                            </div>
+
                             <div class="skill-bar" data-percentage="80%">
                                 <h4 class="progress-title-holder clearfix">
                                     <span class="progress-title">Road Freight</span>
@@ -352,20 +331,7 @@
                                     <div class="progress-content"></div>
                                 </div>
                             </div>
-                            <div class="skill-bar mb-0" data-percentage="75%">
-                                <h4 class="progress-title-holder clearfix">
-                                    <span class="progress-title">Air Freight</span>
-                                    <span class="progress-number-wrapper">
-                                        <span class="progress-number-mark">
-                                            <span class="percent"></span>
-                                            <span class="down-arrow"></span>
-                                        </span>
-                                    </span>
-                                </h4>
-                                <div class="progress-content-outter">
-                                    <div class="progress-content"></div>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -379,7 +345,7 @@
         <!-- End Fun Facts Area -->
 
 		<!-- Start Subscribe Area -->
-		<hr>
+		{{-- <hr> --}}
 		<!-- End Subscribe Area -->
 
 		<!-- Start Footer Bottom Area -->

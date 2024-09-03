@@ -21,6 +21,6 @@ class ServicesController extends Controller
         // Get the next blog post
         $next = Services::where('id', '>', $service->id)->orderBy('id')->first();
 
-        return view('services_details', compact('blog', 'previous', 'next'));
+        return view('services_details', compact('service', 'previous', 'next'));
     }
 }

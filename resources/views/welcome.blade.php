@@ -418,46 +418,18 @@
 					<h2>Comprehensive Logistics and Transport Solutions</h2>
 				</div>
 				<div class="row">
-					<div class="col-lg-4 col-sm-6 p-0">
-						<div class="single-offer">
-							<i class="icon flaticon-server"></i>
-							<h3>Warehousing</h3>
-							<p>Our state-of-the-art warehousing solutions ensure your goods are stored securely and efficiently.</p>
-							<a class="circle-read-more" href="service-details.html">
-								<i class="flaticon-right-1"></i>
-							</a>
-						</div>
-					</div>
-					{{-- <div class="col-lg-3 col-sm-6 p-0">
-						<div class="single-offer">
-							<i class="icon flaticon-air-freight"></i>
-							<h3>Air Freight</h3>
-							<p>Fast and reliable air freight services to meet your urgent transport needs.</p>
-							<a class="circle-read-more" href="service-details.html">
-								<i class="flaticon-right-1"></i>
-							</a>
-						</div>
-					</div> --}}
-					<div class="col-lg-4 col-sm-6 p-0">
-						<div class="single-offer">
-							<i class="icon flaticon-plastic-bottle"></i>
-							<h3>Ocean Freight</h3>
-							<p>Comprehensive ocean freight solutions for international shipping and logistics.</p>
-							<a class="circle-read-more" href="service-details.html">
-								<i class="flaticon-right-1"></i>
-							</a>
-						</div>
-					</div>
-					<div class="col-lg-4 col-sm-6 p-0">
-						<div class="single-offer">
-							<i class="icon flaticon-street"></i>
-							<h3>Road Freight</h3>
-							<p>Efficient road freight services for domestic and cross-border transportation.</p>
-							<a class="circle-read-more" href="service-details.html">
-								<i class="flaticon-right-1"></i>
-							</a>
-						</div>
-					</div>
+                    @foreach ($services as $service)
+                        <div class="col-lg-4 col-sm-6 p-0">
+                            <div class="single-offer">
+                                <i class="icon flaticon-server"></i>
+                                <h3>{{ $service->service_title1 }}</h3>
+                                <p>{{ $service->service_desc1 }}</p>
+                                <a class="circle-read-more" href="{{ route('services.show', ['service' => $service->id]) }}">
+                                    <i class="flaticon-right-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    @endforeach
 				</div>
 			</div>
 		</section>
@@ -533,106 +505,11 @@
 		<!-- End Why Choose Us Area -->
 
 		<!-- Start Counter Area -->
-		<section class="counter-area fun-blue-bg pt-100 pb-70">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-3 col-md-6 col-sm-6">
-						<div class="single-counter">
-							<i class="flaticon-box"></i>
-							<h2>
-								<span class="odometer" data-count="5000">00</span> <span class="traget">+</span>
-							</h2>
-							<p>Delivered Packages</p>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6 col-sm-6">
-						<div class="single-counter">
-							<i class="flaticon-planet-earth"></i>
-							<h2>
-								<span class="odometer" data-count="120">00</span> <span class="traget">+</span>
-							</h2>
-							<p>Countries Covered</p>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6 col-sm-6">
-						<div class="single-counter">
-							<i class="flaticon-support"></i>
-							<h2>
-								<span class="odometer" data-count="800">00</span> <span class="traget">+</span>
-							</h2>
-							<p>Satisfied Clients</p>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6 col-sm-6">
-						<div class="single-counter">
-							<i class="flaticon-product-realise"></i>
-							<h2>
-								<span class="odometer" data-count="3500">00</span> <span class="traget">+</span>
-							</h2>
-							<p>Tons of Goods</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+
 		<!-- End Counter Area -->
 
 		<!-- start Service Area -->
-		<section class="service-area pt-100 pb-100">
-			<div class="container">
-				<div class="section-title">
-					<span>We Offer Services</span>
-					<h2>Prime logistics services for world’s logistic companies.</h2>
-				</div>
-				<div class="row">
-					<div class="col-lg-4 col-sm-6">
-						<div class="single-service">
-							<div class="service-content-wrap">
-								<i class="icon flaticon-server"></i>
-								<h3>Warehousing</h3>
-								<p>Our warehousing solutions ensure your goods are stored securely with the highest standards of safety and efficiency.</p>
-							</div>
-							<div class="service-heading">
-								<a class="circle-read-more" href="service-details.html">
-									<h3>Warehousing</h3>
-									<i class="flaticon-right-1"></i>
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-sm-6">
-						<div class="single-service">
-							<div class="service-content-wrap">
-								<i class="icon flaticon-air-freight"></i>
-								<h3>Air Freight</h3>
-								<p>We offer reliable and efficient air freight services to ensure your cargo reaches its destination on time.</p>
-							</div>
-							<div class="service-heading">
-								<a class="circle-read-more" href="service-details.html">
-									<h3>Air Freight</h3>
-									<i class="flaticon-right-1"></i>
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-sm-6 offset-md-3 offset-sm-3 offset-lg-0">
-						<div class="single-service">
-							<div class="service-content-wrap">
-								<i class="icon flaticon-plastic-bottle"></i>
-								<h3>Road Freight</h3>
-								<p>Our road freight services are designed to handle all your shipping needs with utmost precision and care.</p>
-							</div>
-							<div class="service-heading">
-								<a class="circle-read-more" href="service-details.html">
-									<h3>Ocean Freight</h3>
-									<i class="flaticon-right-1"></i>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+
 		<!-- End Service Area -->
 
 		<!-- Start Testimonials Area -->
@@ -767,81 +644,34 @@
 					<p>Stay informed with the latest insights and updates from Avo Logistics. Explore our expert opinions, industry trends, and company news to stay ahead in the logistics and supply chain sector.</p>
 				</div>
 				<div class="row">
-					<div class="col-lg-4 col-md-6">
-						<div class="single-blog">
-							<a href="news-details.html">
-								<img src="{{ asset('frontend/assets/img/blog/1.png')}}" alt="Image">
-							</a>
-							<div class="blog-content">
-								<ul>
-									<li>
-										<a href="news-details.html">By: Jon Smith</a>
-									</li>
-									<li>Delivery</li>
-									<li>jan 30, 2024</li>
-								</ul>
-								<h3>
-									<a href="news-details.html">
-										Exporters Achieve Cost Savings Throughout the sale
-									</a>
-								</h3>
-								<a class="read-more" href="news-details.html">
-									Read More
-									<i class='bx bx-right-arrow-alt'></i>
+					@foreach ($blogs as $blog)
+						<div class="col-lg-4 col-md-6">
+							<div class="single-blog">
+								<a href="{{ route('blogs.show', ['blog' => $blog->id]) }}">
+									<img src="{{ $blog->image_sm ? asset('storage/' . $blog->image_sm) : asset('backend/assets/img/default.jpg') }}" alt="{{ $blog->image_sm }}">
 								</a>
+								<div class="blog-content">
+									<ul>
+										<li>
+											<a href="{{ route('blogs.show', ['blog' => $blog->id]) }}">By: Jon Smith</a>
+										</li>
+										<li>Delivery</li>
+										<li>{{ $blog->created_at->format('d M, Y') }}</li>
+									</ul>
+									<h3>
+										<a href="{{ route('blogs.show', ['blog' => $blog->id]) }}">
+											{{ $blog->blog_title }}
+										</a>
+									</h3>
+									<p>{{ $blog->blog_short_desc }}</p>
+									<a class="read-more" href="{{ route('blogs.show', ['blog' => $blog->id]) }}">
+										Read More
+										<i class='bx bx-right-arrow-alt'></i>
+									</a>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="col-lg-4 col-md-6">
-						<div class="single-blog">
-							<a href="news-details.html">
-								<img src="{{ asset('frontend/assets/img/blog/2.png')}}" alt="Image">
-							</a>
-							<div class="blog-content">
-								<ul>
-									<li>
-										<a href="news-details.html">By: Amith klev</a>
-									</li>
-									<li>Engineering</li>
-									<li>Feb 5, 2024</li>
-								</ul>
-								<h3>
-									<a href="news-details.html">
-										Deliveright Logistics Expands Service to West
-									</a>
-								</h3>
-								<a class="read-more" href="news-details.html">
-									Read More
-									<i class='bx bx-right-arrow-alt'></i>
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
-						<div class="single-blog">
-							<a href="news-details.html">
-								<img src="{{ asset('frontend/assets/img/blog/3.png')}}" alt="Image">
-							</a>
-							<div class="blog-content">
-								<ul>
-									<li>
-										<a href="news-details.html">By: joney jai</a>
-									</li>
-									<li>Transport</li>
-									<li>Feb 10, 2024</li>
-								</ul>
-								<h3>
-									<a href="news-details.html">
-										Software May Be Best Bet to Conquer Final Mile
-									</a>
-								</h3>
-								<a class="read-more" href="news-details.html">
-									Read More
-									<i class='bx bx-right-arrow-alt'></i>
-								</a>
-							</div>
-						</div>
-					</div>
+					@endforeach
 				</div>
 			</div>
 		</section>
